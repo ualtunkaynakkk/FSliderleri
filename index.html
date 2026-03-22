@@ -6,772 +6,119 @@
 <title>Penti - Fatura Liderlerini Arıyor</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --penti-pink: #E91E8C;
-  --penti-pink-light: #F472B6;
-  --penti-pink-dark: #BE185D;
-  --penti-pink-glow: rgba(233, 30, 140, 0.15);
-  --penti-pink-subtle: rgba(233, 30, 140, 0.06);
-  --gold: #D4A03C;
-  --gold-light: #F5D98A;
-  --silver: #94A3B8;
-  --bronze: #CD7F32;
-  --bg: #FAFAFA;
-  --card-bg: #FFFFFF;
-  --text-primary: #1E1B2E;
-  --text-secondary: #64607A;
-  --text-muted: #9E99AE;
-  --border: #F0ECF5;
-  --success: #10B981;
-  --warning: #F59E0B;
-  --danger: #EF4444;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
-  --shadow-pink: 0 8px 30px rgba(233, 30, 140, 0.12);
-  --radius: 16px;
-  --radius-sm: 10px;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text-primary);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* HEADER */
-.header {
-  background: linear-gradient(135deg, #1E1B2E 0%, #2D1B3D 50%, #3D1B4E 100%);
-  padding: 40px 0 50px;
-  position: relative;
-  overflow: hidden;
-}
-.header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(233,30,140,0.15) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.header::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(233,30,140,0.1) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.header-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 30px;
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-.penti-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 12px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-.penti-logo span { color: var(--penti-pink-light); }
-.header-subtitle {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-.header-trophy {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-/* PENTI OVERALL CARD */
-.penti-overall {
-  max-width: 1400px;
-  margin: -30px auto 0;
-  padding: 0 30px;
-  position: relative;
-  z-index: 2;
-}
-.penti-overall-card {
-  background: linear-gradient(135deg, var(--penti-pink) 0%, var(--penti-pink-dark) 100%);
-  border-radius: var(--radius);
-  padding: 28px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: var(--shadow-pink);
-  color: #fff;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-.penti-overall-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.penti-overall-left h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-}
-.penti-overall-stats {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-.penti-stat { text-align: center; }
-.penti-stat-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  opacity: 0.8;
-  margin-bottom: 4px;
-}
-.penti-stat-value {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-/* BEST PERFORMERS STRIP */
-.best-strip {
-  max-width: 1400px;
-  margin: 24px auto;
-  padding: 0 30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.best-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-sm);
-  padding: 20px 24px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.best-card .medal { font-size: 32px; }
-.best-card .best-info { flex: 1; }
-.best-card .best-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-bottom: 3px;
-}
-.best-card .best-name {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--text-primary);
-  line-height: 1.3;
-}
-.best-card .best-detail {
-  font-size: 11px;
-  color: var(--text-secondary);
-  margin-top: 2px;
-}
-.best-card .best-hgo {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--penti-pink);
-}
-
-/* SECTIONS */
-.container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 30px 60px;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 36px 0 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.section-title .icon { font-size: 22px; }
-
-/* OM CARDS */
-.om-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.om-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 28px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-.om-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-.om-card.rank-1 { border-top: 3px solid var(--gold); }
-.om-card.rank-2 { border-top: 3px solid var(--silver); }
-.om-card.rank-3 { border-top: 3px solid var(--bronze); }
-.om-rank {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  font-size: 24px;
-}
-.om-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 4px;
-  padding-right: 40px;
-}
-.om-role {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-.om-hgo-big {
-  font-family: 'Playfair Display', serif;
-  font-size: 44px;
-  font-weight: 800;
-  color: var(--penti-pink);
-  margin-bottom: 16px;
-}
-.om-stats-row {
-  display: flex;
-  gap: 20px;
-}
-.om-stat-item { flex: 1; }
-.om-stat-item .label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-.om-stat-item .value {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-.om-bar-bg {
-  height: 6px;
-  background: var(--border);
-  border-radius: 3px;
-  margin-top: 16px;
-  overflow: hidden;
-}
-.om-bar-fill {
-  height: 100%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--penti-pink), var(--penti-pink-light));
-  transition: width 1s ease;
-}
-
-/* BM GRID */
-.bm-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
-}
-.bm-card {
-  background: var(--card-bg);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.bm-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-}
-.bm-card.expanded {
-  grid-column: 1 / -1;
-  box-shadow: var(--shadow-lg);
-}
-.bm-card-header {
-  padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-.bm-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-  min-width: 0;
-}
-.bm-avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 13px;
-  color: #fff;
-  flex-shrink: 0;
-}
-.bm-info { min-width: 0; }
-.bm-name {
-  font-weight: 600;
-  font-size: 13px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.bm-om-label {
-  font-size: 10px;
-  color: var(--text-muted);
-  margin-top: 1px;
-}
-.bm-right {
-  text-align: right;
-  flex-shrink: 0;
-}
-.bm-hgo {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--penti-pink);
-}
-.bm-target-info {
-  font-size: 10px;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
-.bm-mini-bar {
-  height: 3px;
-  background: var(--border);
-}
-.bm-mini-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--penti-pink), var(--penti-pink-light));
-}
-.bm-expand-icon {
-  font-size: 11px;
-  color: var(--text-muted);
-  transition: transform 0.3s ease;
-  margin-left: 8px;
-}
-.bm-card.expanded .bm-expand-icon { transform: rotate(180deg); }
-
-/* STORE TABLE */
-.bm-stores {
-  display: none;
-  padding: 0 20px 20px;
-}
-.bm-card.expanded .bm-stores { display: block; }
-.store-table-wrap {
-  max-height: 400px;
-  overflow-y: auto;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-.store-table-wrap::-webkit-scrollbar { width: 5px; }
-.store-table-wrap::-webkit-scrollbar-thumb { background: var(--penti-pink-light); border-radius: 3px; }
-.store-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-}
-.store-table thead th {
-  background: #F8F5FC;
-  padding: 10px 14px;
-  text-align: left;
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: var(--text-muted);
-  font-weight: 600;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-.store-table thead th:last-child { text-align: right; }
-.store-table tbody tr {
-  border-bottom: 1px solid var(--border);
-  transition: background 0.15s;
-}
-.store-table tbody tr:hover { background: var(--penti-pink-subtle); }
-.store-table tbody td {
-  padding: 9px 14px;
-  color: var(--text-secondary);
-}
-.store-table tbody td:last-child { text-align: right; }
-.store-hgo-badge {
-  display: inline-block;
-  padding: 2px 10px;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 11px;
-}
-.hgo-high {
-  background: rgba(16,185,129,0.1);
-  color: #059669;
-}
-.hgo-mid {
-  background: rgba(245,158,11,0.1);
-  color: #D97706;
-}
-.hgo-low {
-  background: rgba(239,68,68,0.1);
-  color: #DC2626;
-}
-.store-best-row {
-  background: rgba(233,30,140,0.04) !important;
-}
-.store-best-row td:first-child::before {
-  content: '⭐ ';
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 30px;
-  font-size: 11px;
-  color: var(--text-muted);
-  letter-spacing: 1px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .om-grid { grid-template-columns: 1fr; }
-  .best-strip { grid-template-columns: 1fr; }
-  .bm-grid { grid-template-columns: 1fr; }
-  .penti-logo { font-size: 36px; letter-spacing: 6px; }
-  .penti-overall-card { flex-direction: column; text-align: center; }
-}
-
-/* ANIMATIONS */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-in {
-  animation: fadeInUp 0.5s ease forwards;
-  opacity: 0;
-}
+:root{--penti-pink:#E91E8C;--penti-pink-light:#F472B6;--penti-pink-dark:#BE185D;--penti-pink-glow:rgba(233,30,140,0.15);--penti-pink-subtle:rgba(233,30,140,0.06);--gold:#D4A03C;--silver:#94A3B8;--bronze:#CD7F32;--bg:#FAFAFA;--card-bg:#FFFFFF;--text-primary:#1E1B2E;--text-secondary:#64607A;--text-muted:#9E99AE;--border:#F0ECF5;--shadow-sm:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.03);--shadow-md:0 4px 12px rgba(0,0,0,0.06),0 2px 4px rgba(0,0,0,0.04);--shadow-lg:0 12px 40px rgba(0,0,0,0.08),0 4px 12px rgba(0,0,0,0.04);--shadow-pink:0 8px 30px rgba(233,30,140,0.12);--radius:16px;--radius-sm:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text-primary);min-height:100vh;overflow-x:hidden}
+.header{background:linear-gradient(135deg,#1E1B2E 0%,#2D1B3D 50%,#3D1B4E 100%);padding:40px 0 50px;position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(233,30,140,0.15) 0%,transparent 70%);border-radius:50%}
+.header::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(233,30,140,0.1) 0%,transparent 70%);border-radius:50%}
+.header-inner{max-width:1400px;margin:0 auto;padding:0 30px;position:relative;z-index:1;text-align:center}
+.penti-logo{font-family:'Playfair Display',serif;font-size:52px;font-weight:800;color:#fff;letter-spacing:12px;text-transform:uppercase;margin-bottom:12px}
+.header-subtitle{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:rgba(255,255,255,0.7);letter-spacing:4px;text-transform:uppercase;margin-bottom:30px}
+.header-trophy{font-size:48px;margin-bottom:10px}
+.penti-overall{max-width:1400px;margin:-30px auto 0;padding:0 30px;position:relative;z-index:2}
+.penti-overall-card{background:linear-gradient(135deg,var(--penti-pink) 0%,var(--penti-pink-dark) 100%);border-radius:var(--radius);padding:28px 40px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-pink);color:#fff;flex-wrap:wrap;gap:16px}
+.penti-overall-left{display:flex;align-items:center;gap:16px}
+.penti-overall-left h2{font-family:'Playfair Display',serif;font-size:24px;font-weight:700}
+.penti-overall-stats{display:flex;gap:40px;flex-wrap:wrap}
+.penti-stat{text-align:center}
+.penti-stat-label{font-size:11px;text-transform:uppercase;letter-spacing:2px;opacity:0.8;margin-bottom:4px}
+.penti-stat-value{font-size:26px;font-weight:700}
+.best-strip-container{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.best-card{background:var(--card-bg);border-radius:var(--radius-sm);padding:20px 24px;box-shadow:var(--shadow-sm);border:1px solid var(--border);display:flex;align-items:center;gap:14px}
+.best-card .medal{font-size:32px}
+.best-card .best-info{flex:1}
+.best-card .best-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);font-weight:600;margin-bottom:3px}
+.best-card .best-name{font-weight:600;font-size:14px;color:var(--text-primary);line-height:1.3}
+.best-card .best-detail{font-size:11px;color:var(--text-secondary);margin-top:2px}
+.best-card .best-hgo{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--penti-pink)}
+.container{max-width:1400px;margin:0 auto;padding:0 30px 60px}
+.section-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text-primary);margin:36px 0 18px;display:flex;align-items:center;gap:10px}
+.section-title .icon{font-size:22px}
+.om-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.om-card{background:var(--card-bg);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow-sm);border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.3s ease}
+.om-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.om-card.rank-1{border-top:3px solid var(--gold)}
+.om-card.rank-2{border-top:3px solid var(--silver)}
+.om-card.rank-3{border-top:3px solid var(--bronze)}
+.om-rank{position:absolute;top:16px;right:20px;font-size:24px}
+.om-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;margin-bottom:4px;padding-right:40px}
+.om-role{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);font-weight:600;margin-bottom:18px}
+.om-hgo-big{font-family:'Playfair Display',serif;font-size:44px;font-weight:800;color:var(--penti-pink);margin-bottom:16px}
+.om-stats-row{display:flex;gap:20px}
+.om-stat-item{flex:1}
+.om-stat-item .label{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);font-weight:600;margin-bottom:2px}
+.om-stat-item .value{font-size:14px;font-weight:600;color:var(--text-primary)}
+.om-bar-bg{height:6px;background:var(--border);border-radius:3px;margin-top:16px;overflow:hidden}
+.om-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--penti-pink),var(--penti-pink-light));transition:width 1s ease}
+.bm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.bm-card{background:var(--card-bg);border-radius:var(--radius-sm);border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;cursor:pointer;transition:all 0.3s ease}
+.bm-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.bm-card.expanded{grid-column:1/-1;box-shadow:var(--shadow-lg)}
+.bm-card-header{padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bm-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.bm-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#fff;flex-shrink:0}
+.bm-info{min-width:0}
+.bm-name{font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bm-om-label{font-size:10px;color:var(--text-muted);margin-top:1px}
+.bm-right{text-align:right;flex-shrink:0}
+.bm-hgo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--penti-pink)}
+.bm-target-info{font-size:10px;color:var(--text-muted);margin-top:2px}
+.bm-mini-bar{height:3px;background:var(--border)}
+.bm-mini-bar-fill{height:100%;background:linear-gradient(90deg,var(--penti-pink),var(--penti-pink-light))}
+.bm-expand-icon{font-size:11px;color:var(--text-muted);transition:transform 0.3s ease;margin-left:8px}
+.bm-card.expanded .bm-expand-icon{transform:rotate(180deg)}
+.bm-stores{display:none;padding:0 20px 20px}
+.bm-card.expanded .bm-stores{display:block}
+.store-table-wrap{max-height:400px;overflow-y:auto;border-radius:8px;border:1px solid var(--border)}
+.store-table-wrap::-webkit-scrollbar{width:5px}
+.store-table-wrap::-webkit-scrollbar-thumb{background:var(--penti-pink-light);border-radius:3px}
+.store-table{width:100%;border-collapse:collapse;font-size:12px}
+.store-table thead th{background:#F8F5FC;padding:10px 14px;text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--text-muted);font-weight:600;position:sticky;top:0;z-index:1}
+.store-table thead th:last-child{text-align:right}
+.store-table tbody tr{border-bottom:1px solid var(--border);transition:background 0.15s}
+.store-table tbody tr:hover{background:var(--penti-pink-subtle)}
+.store-table tbody td{padding:9px 14px;color:var(--text-secondary)}
+.store-table tbody td:last-child{text-align:right}
+.store-hgo-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-weight:600;font-size:11px}
+.hgo-high{background:rgba(16,185,129,0.1);color:#059669}
+.hgo-mid{background:rgba(245,158,11,0.1);color:#D97706}
+.hgo-low{background:rgba(239,68,68,0.1);color:#DC2626}
+.store-best-row{background:rgba(233,30,140,0.04)!important}
+.store-best-row td:first-child::before{content:'⭐ '}
+.footer{text-align:center;padding:30px;font-size:11px;color:var(--text-muted);letter-spacing:1px}
+@media(max-width:900px){.om-grid{grid-template-columns:1fr}.best-strip-container{grid-template-columns:1fr}.bm-grid{grid-template-columns:1fr}.penti-logo{font-size:36px;letter-spacing:6px}.penti-overall-card{flex-direction:column;text-align:center}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.animate-in{animation:fadeInUp 0.5s ease forwards;opacity:0}
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<div class="header">
-  <div class="header-inner">
-    <div class="header-trophy">🏆</div>
-    <div class="penti-logo">PENTI</div>
-    <div class="header-subtitle">Fatura Liderlerini Arıyor</div>
-  </div>
-</div>
-
-<!-- PENTI OVERALL -->
-<div class="penti-overall">
-  <div class="penti-overall-card animate-in" style="animation-delay:0.1s">
-    <div class="penti-overall-left">
-      <h2>📊 Genel Durum</h2>
-    </div>
-    <div class="penti-overall-stats">
-      <div class="penti-stat">
-        <div class="penti-stat-label">Hedef</div>
-        <div class="penti-stat-value">656.200</div>
-      </div>
-      <div class="penti-stat">
-        <div class="penti-stat-label">Gerçekleşen</div>
-        <div class="penti-stat-value">124.071</div>
-      </div>
-      <div class="penti-stat">
-        <div class="penti-stat-label">HGO</div>
-        <div class="penti-stat-value">%19</div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<div class="header"><div class="header-inner"><div class="header-trophy">🏆</div><div class="penti-logo">PENTI</div><div class="header-subtitle">Fatura Liderlerini Arıyor</div></div></div>
+<div class="penti-overall"><div class="penti-overall-card animate-in" style="animation-delay:0.1s"><div class="penti-overall-left"><h2>📊 Genel Durum</h2></div><div class="penti-overall-stats"><div class="penti-stat"><div class="penti-stat-label">Hedef</div><div class="penti-stat-value">656.200</div></div><div class="penti-stat"><div class="penti-stat-label">Gerçekleşen</div><div class="penti-stat-value">162.330</div></div><div class="penti-stat"><div class="penti-stat-label">HGO</div><div class="penti-stat-value">%25</div></div></div></div></div>
 <div class="container">
-
-  <!-- BEST PERFORMERS -->
-  <div class="best-strip" style="max-width:unset;padding:0;margin-top:24px;">
+  <div class="best-strip-container">
+    <div class="best-card animate-in" style="animation-delay:0.2s"><div class="medal">🥇</div><div class="best-info"><div class="best-label">En İyi OM</div><div class="best-name">İbrahim Emre Karasırt</div><div class="best-detail">Operasyon Müdürü</div></div><div class="best-hgo">%26</div></div>
+    <div class="best-card animate-in" style="animation-delay:0.3s"><div class="medal">🥇</div><div class="best-info"><div class="best-label">En İyi BM</div><div class="best-name">Fatih Sulun</div><div class="best-detail">Hazel Aydemir · %36</div></div><div class="best-hgo">%36</div></div>
+    <div class="best-card animate-in" style="animation-delay:0.4s"><div class="medal">🥇</div><div class="best-info"><div class="best-label">En İyi Mağaza</div><div class="best-name">BURS ANATOLIUM</div><div class="best-detail">Fatih Sulun · Hazel Aydemir</div></div><div class="best-hgo">%74</div></div>
   </div>
-
-  <div class="best-strip-container" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;">
-    <div class="best-card animate-in" style="animation-delay:0.2s">
-      <div class="medal">🥇</div>
-      <div class="best-info">
-        <div class="best-label">En İyi OM</div>
-        <div class="best-name">İbrahim Emre Karasırt</div>
-        <div class="best-detail">Operasyon Müdürü</div>
-      </div>
-      <div class="best-hgo">%20</div>
-    </div>
-    <div class="best-card animate-in" style="animation-delay:0.3s">
-      <div class="medal">🥇</div>
-      <div class="best-info">
-        <div class="best-label">En İyi BM</div>
-        <div class="best-name">Fatih Sulun</div>
-        <div class="best-detail">Hazel Aydemir · %29</div>
-      </div>
-      <div class="best-hgo">%29</div>
-    </div>
-    <div class="best-card animate-in" style="animation-delay:0.4s">
-      <div class="medal">🥇</div>
-      <div class="best-info">
-        <div class="best-label">En İyi Mağaza</div>
-        <div class="best-name">BURS ANATOLIUM</div>
-        <div class="best-detail">Fatih Sulun · Hazel Aydemir</div>
-      </div>
-      <div class="best-hgo">%59</div>
-    </div>
-  </div>
-
-  <!-- OM SECTION -->
   <div class="section-title"><span class="icon">👔</span> Operasyon Müdürleri</div>
   <div class="om-grid" id="omGrid"></div>
-
-  <!-- BM SECTION -->
   <div class="section-title"><span class="icon">👥</span> Bölge Müdürleri <span style="font-family:'DM Sans';font-size:13px;font-weight:400;color:var(--text-muted);margin-left:8px;">(Tıklayarak mağazaları görüntüleyin)</span></div>
   <div class="bm-grid" id="bmGrid"></div>
-
 </div>
-
 <div class="footer">PENTI — Fatura Liderlerini Arıyor © 2026</div>
-
 <script>
-// DATA
-const omData = [
-  { name: "İbrahim Emre Karasırt", hedef: 196900, gerceklesen: 38621, hgo: 20, rank: 1 },
-  { name: "Hazel Aydemir", hedef: 219100, gerceklesen: 41140, hgo: 19, rank: 2 },
-  { name: "Derya Öztürk", hedef: 240200, gerceklesen: 44310, hgo: 18, rank: 3 },
-];
-
-const bmData = [
-  { name:"Fatih Sulun", om:"Hazel Aydemir", hedef:24800, gerceklesen:7207, hgo:29 },
-  { name:"Ruveyda Un", om:"Derya Öztürk", hedef:24900, gerceklesen:6378, hgo:26 },
-  { name:"Hatice Yıldız Ertaş", om:"İbrahim Emre Karasırt", hedef:19800, gerceklesen:4785, hgo:24 },
-  { name:"Mustafa Bulut", om:"Hazel Aydemir", hedef:26500, gerceklesen:6033, hgo:23 },
-  { name:"Emre Topcan", om:"İbrahim Emre Karasırt", hedef:26700, gerceklesen:5503, hgo:21 },
-  { name:"Meliha Ilhan", om:"Derya Öztürk", hedef:35400, gerceklesen:7397, hgo:21 },
-  { name:"Bora Dedeoglu", om:"Hazel Aydemir", hedef:25700, gerceklesen:5475, hgo:21 },
-  { name:"Seda Urgan", om:"Hazel Aydemir", hedef:23700, gerceklesen:4877, hgo:21 },
-  { name:"Esma Gul", om:"İbrahim Emre Karasırt", hedef:20800, gerceklesen:4291, hgo:21 },
-  { name:"Mehmet Sena Aydin", om:"İbrahim Emre Karasırt", hedef:30300, gerceklesen:6436, hgo:21 },
-  { name:"Aysun Cetin", om:"Derya Öztürk", hedef:41500, gerceklesen:8365, hgo:20 },
-  { name:"Zehra Celik", om:"İbrahim Emre Karasırt", hedef:20800, gerceklesen:4210, hgo:20 },
-  { name:"Zeycan Ozcan", om:"İbrahim Emre Karasırt", hedef:30200, gerceklesen:5577, hgo:18 },
-  { name:"Betul Duran", om:"İbrahim Emre Karasırt", hedef:29900, gerceklesen:4965, hgo:17 },
-  { name:"Deniz Uysal", om:"Derya Öztürk", hedef:26500, gerceklesen:4439, hgo:17 },
-  { name:"Taylan Yılmaz", om:"Derya Öztürk", hedef:45000, gerceklesen:7356, hgo:16 },
-  { name:"Nur Ekici Küçük", om:"Derya Öztürk", hedef:36600, gerceklesen:5999, hgo:16 },
-  { name:"Burcin Taskıran", om:"İbrahim Emre Karasırt", hedef:18400, gerceklesen:2854, hgo:16 },
-  { name:"Ümit Altunkaynak", om:"Hazel Aydemir", hedef:77400, gerceklesen:11820, hgo:15 },
-  { name:"Buse Aksu", om:"Derya Öztürk", hedef:30300, gerceklesen:4376, hgo:14 },
-  { name:"Pinar Beyaz", om:"Hazel Aydemir", hedef:41000, gerceklesen:5728, hgo:14 },
-];
-
-const storeData = {
-  "Aysun Cetin": [
-    {store:"ANKA 365 AVM",hedef:1300,ger:227,hgo:17},{store:"ANKA ANATOLIUM",hedef:500,ger:170,hgo:34},{store:"ANKA ARCADIUM AVM",hedef:2200,ger:267,hgo:12},{store:"ANKA ARMADA",hedef:1100,ger:172,hgo:16},{store:"ANKA BILKENT",hedef:1400,ger:106,hgo:8},{store:"ANKA CEPA",hedef:2300,ger:406,hgo:18},{store:"ANKA GORDION AVM",hedef:2400,ger:443,hgo:18},{store:"ANKA KENTPARK",hedef:4000,ger:703,hgo:18},{store:"ANKA NATA VEGA AVM",hedef:3000,ger:490,hgo:16},{store:"ANKA NEXTLEVEL",hedef:900,ger:99,hgo:11},{store:"ANKA OPTIMUM",hedef:2500,ger:401,hgo:16},{store:"ANKA SINCAN CD",hedef:900,ger:254,hgo:28},{store:"ARTV ARTRIUM AVM",hedef:400,ger:107,hgo:27},{store:"CANK YUNUS",hedef:300,ger:146,hgo:49},{store:"KAST BARUT",hedef:500,ger:98,hgo:20},{store:"KAST KASTAMALL AVM",hedef:600,ger:205,hgo:34},{store:"KIRI PODIUM AVM",hedef:1400,ger:443,hgo:32},{store:"RIZE CUMHURIYET CD",hedef:900,ger:164,hgo:18},{store:"RIZE SIMAL AVM",hedef:1700,ger:422,hgo:25},{store:"SIVA ISTASYON CD",hedef:1500,ger:307,hgo:20},{store:"SIVA PRIMEMALL AVM",hedef:1100,ger:321,hgo:29},{store:"TOKA NOVADA AVM",hedef:1900,ger:397,hgo:21},{store:"TRAB ATAPARK",hedef:700,ger:175,hgo:25},{store:"TRAB CEVAHIR OUTLET AVM",hedef:600,ger:210,hgo:35},{store:"TRAB TRABZON FR",hedef:3100,ger:676,hgo:22},{store:"TRAB UZUN SOKAK 2",hedef:3700,ger:775,hgo:21},{store:"YOZG NOVADA AVM",hedef:600,ger:181,hgo:30}
-  ],
-  "Buse Aksu": [
-    {store:"ISTA ALTIYOL CD",hedef:2200,ger:198,hgo:9},{store:"ISTA BAGDAT CAD",hedef:2700,ger:148,hgo:5},{store:"ISTA BAHARIYE CD 2",hedef:2900,ger:196,hgo:7},{store:"ISTA ERENKOY 2",hedef:2000,ger:156,hgo:8},{store:"ISTA HALITAGA CAD",hedef:800,ger:77,hgo:10},{store:"ISTA HILLTOWN KUCUKYALI 2 AVM",hedef:3700,ger:796,hgo:22},{store:"ISTA KOZZY",hedef:1600,ger:236,hgo:15},{store:"ISTA MALTEPE CFR",hedef:1400,ger:407,hgo:29},{store:"ISTA MALTEPE PIAZZA AVM",hedef:3600,ger:872,hgo:24},{store:"ISTA MARMARA ANATOLIUM AVM",hedef:900,ger:122,hgo:14},{store:"ISTA MUHURDAR CD",hedef:1400,ger:147,hgo:11},{store:"ISTA OPTIMUM",hedef:1800,ger:316,hgo:18},{store:"ISTA PALLADIUM 2",hedef:2000,ger:326,hgo:16},{store:"ISTA RITIM ISTANBUL AVM",hedef:1200,ger:150,hgo:13},{store:"ISTA SASKINBAKKAL CD",hedef:1000,ger:134,hgo:13},{store:"ISTA YAYLADA AVM",hedef:1100,ger:95,hgo:9}
-  ],
-  "Deniz Uysal": [
-    {store:"ISTA GAZIPASA CD",hedef:1900,ger:259,hgo:14},{store:"ISTA MALTEPE CAD",hedef:1400,ger:176,hgo:13},{store:"ISTA MARINA",hedef:2700,ger:491,hgo:18},{store:"ISTA NEOMARIN",hedef:1400,ger:278,hgo:20},{store:"ISTA PENDIK 19 MAYIS CD",hedef:1100,ger:154,hgo:14},{store:"ISTA RINGS AVM",hedef:800,ger:104,hgo:13},{store:"ISTA SARIGAZI CD",hedef:1000,ger:114,hgo:11},{store:"ISTA SULTANBEYLI ATLAS",hedef:1500,ger:282,hgo:19},{store:"ISTA SULTANBEYLI PLATO",hedef:800,ger:109,hgo:14},{store:"ISTA TUZLA MARINA AVM",hedef:2400,ger:310,hgo:13},{store:"ISTA TUZLAPORT AVM",hedef:1300,ger:134,hgo:10},{store:"ISTA VIAPORT",hedef:2400,ger:395,hgo:16},{store:"ISTA VIAPORT 2",hedef:2100,ger:270,hgo:13},{store:"KOCA GEBZECENTER",hedef:1800,ger:535,hgo:30},{store:"KOCA OKSIJEN SHOPINN AVM",hedef:700,ger:155,hgo:22},{store:"YALO GAZIPASA CD",hedef:1300,ger:192,hgo:15},{store:"YALO STAR AVM",hedef:1200,ger:235,hgo:20},{store:"YALO YALOVA KIPA",hedef:700,ger:246,hgo:35}
-  ],
-  "Meliha Ilhan": [
-    {store:"AKSA EFOR",hedef:1100,ger:277,hgo:25},{store:"ANKA ACITY",hedef:1300,ger:341,hgo:26},{store:"ANKA ANKAMALL",hedef:2800,ger:606,hgo:22},{store:"ANKA ANKAMALL 2",hedef:2000,ger:640,hgo:32},{store:"ANKA ANKARA FR",hedef:1700,ger:407,hgo:24},{store:"ANKA ANTARES",hedef:3000,ger:527,hgo:18},{store:"ANKA ATAKULE AVM",hedef:1600,ger:189,hgo:12},{store:"ANKA ATLANTIS",hedef:2100,ger:448,hgo:21},{store:"ANKA FTZ AVM",hedef:600,ger:112,hgo:19},{store:"ANKA KUZUEFFECT AVM",hedef:800,ger:71,hgo:9},{store:"ANKA ONE TOWER AVM",hedef:1200,ger:129,hgo:11},{store:"ANKA PANORA",hedef:2900,ger:460,hgo:16},{store:"ANKA PODIUM AVM",hedef:1300,ger:229,hgo:18},{store:"ANKA TAURUS",hedef:1300,ger:227,hgo:17},{store:"ANKA VEGA SUBAYEVLERI AVM",hedef:800,ger:255,hgo:32},{store:"KAYS ILDEM AVM",hedef:500,ger:191,hgo:38},{store:"KAYS KAYSERI FR",hedef:3000,ger:648,hgo:22},{store:"KAYS KAYSERIPARK",hedef:2300,ger:468,hgo:20},{store:"KAYS KUMSMALL AVM",hedef:400,ger:159,hgo:40},{store:"KAYS MEYSU AVM",hedef:600,ger:163,hgo:27},{store:"NEVS KAPADOKYA FR",hedef:900,ger:201,hgo:22},{store:"NEVS NISSARA AVM",hedef:900,ger:247,hgo:27},{store:"NIGD NIGDE CD",hedef:800,ger:135,hgo:17},{store:"NIGD TEMA PARK AVM",hedef:1500,ger:267,hgo:18}
-  ],
-  "Nur Ekici Küçük": [
-    {store:"ISTA AKASYA AVM",hedef:4900,ger:687,hgo:14},{store:"ISTA AKYAKA PARK",hedef:1300,ger:224,hgo:17},{store:"ISTA ALEMDAG CD",hedef:2200,ger:333,hgo:15},{store:"ISTA ALEMDAG CD2",hedef:1800,ger:290,hgo:16},{store:"ISTA BRANDIUM",hedef:1500,ger:150,hgo:10},{store:"ISTA BRANDIUM AVM POP-UP",hedef:1300,ger:156,hgo:12},{store:"ISTA BUYAKA",hedef:2100,ger:487,hgo:23},{store:"ISTA CANPARK AVM",hedef:1200,ger:338,hgo:28},{store:"ISTA CAPITOL",hedef:1700,ger:331,hgo:19},{store:"ISTA EMAAR SQUARE AVM",hedef:3900,ger:831,hgo:21},{store:"ISTA ICERENKOY CFR",hedef:2800,ger:412,hgo:15},{store:"ISTA METROGARDEN AVM",hedef:2200,ger:454,hgo:21},{store:"ISTA METROPOL AVM",hedef:2400,ger:401,hgo:17},{store:"ISTA NAUTILUS",hedef:2000,ger:297,hgo:15},{store:"ISTA NEV CARSI AVM",hedef:1000,ger:142,hgo:14},{store:"ISTA UMR MEYDAN",hedef:2700,ger:361,hgo:13},{store:"ISTA WATER GARDEN AVM",hedef:1600,ger:105,hgo:7}
-  ],
-  "Ruveyda Un": [
-    {store:"BOLU 14 BURDA AVM",hedef:900,ger:282,hgo:31},{store:"BOLU CADDE AVM",hedef:1400,ger:221,hgo:16},{store:"BOLU HIGHWAY",hedef:1300,ger:480,hgo:37},{store:"DUZC KREMPARK",hedef:1000,ger:370,hgo:37},{store:"KOCA 41 BURDA AVM",hedef:3000,ger:830,hgo:28},{store:"KOCA ARASTAPARK AVM",hedef:1400,ger:311,hgo:22},{store:"KOCA HURRIYET CD",hedef:3400,ger:373,hgo:11},{store:"KOCA ISTIKLAL CD",hedef:1100,ger:352,hgo:32},{store:"KOCA IZMIT OUTLET CENTER",hedef:1700,ger:365,hgo:21},{store:"KOCA SYMBOL AVM",hedef:1700,ger:488,hgo:29},{store:"SAKA 54 CADDE AVM",hedef:1500,ger:394,hgo:26},{store:"SAKA ADAPAZARI AGORA",hedef:700,ger:379,hgo:54},{store:"SAKA CARK CD",hedef:1500,ger:271,hgo:18},{store:"SAKA KARASU CD",hedef:800,ger:151,hgo:19},{store:"SAKA NG SAPANCA AVM",hedef:600,ger:191,hgo:32},{store:"SAKA SERDIVAN",hedef:1200,ger:602,hgo:50},{store:"SAKARYA ADA CENTER",hedef:1700,ger:318,hgo:19}
-  ],
-  "Taylan Yılmaz": [
-    {store:"ANKA 7. CD",hedef:3100,ger:259,hgo:8},{store:"ANKA CEMAL GURSEL CD",hedef:1700,ger:173,hgo:10},{store:"ANKA IZMIR CD",hedef:1000,ger:82,hgo:8},{store:"ANKA KARTALTEPE AVM",hedef:400,ger:141,hgo:35},{store:"ANKA KASMIR AVM",hedef:1400,ger:210,hgo:15},{store:"ANKA KIZILAY 1",hedef:4400,ger:313,hgo:7},{store:"ANKA KIZILAY MEYDAN",hedef:2700,ger:217,hgo:8},{store:"ANKA METROMALL AVM",hedef:4000,ger:815,hgo:20},{store:"ANKA TUNALI HILMI CD 2",hedef:3900,ger:287,hgo:7},{store:"BART BARTIN CD",hedef:1100,ger:185,hgo:17},{store:"ESKI DOKTORLAR CD 2",hedef:2400,ger:457,hgo:19},{store:"ESKI ESPARK",hedef:4900,ger:923,hgo:19},{store:"ESKI VEGA OUTLET AVM",hedef:1900,ger:517,hgo:27},{store:"KARA KARAMANPARK",hedef:700,ger:155,hgo:22},{store:"KARB KARES",hedef:1100,ger:257,hgo:23},{store:"KONY ENNTEPE AVM",hedef:900,ger:270,hgo:30},{store:"KONY EREGLI PARK AVM",hedef:600,ger:185,hgo:31},{store:"KONY KENT PLAZA",hedef:1200,ger:348,hgo:29},{store:"KONY KULESITE",hedef:1500,ger:355,hgo:24},{store:"KONY M1 AVM",hedef:1100,ger:283,hgo:26},{store:"KONY NOVADA AVM",hedef:400,ger:141,hgo:35},{store:"ZONG 67 BURDA AVM",hedef:2300,ger:379,hgo:16},{store:"ZONG EREGLI OZDEMIR AVM",hedef:1200,ger:274,hgo:23},{store:"ZONG EREYLIN AVM",hedef:1100,ger:130,hgo:12}
-  ],
-  "Bora Dedeoglu": [
-    {store:"AMAS AMASYA PARK AVM",hedef:900,ger:301,hgo:33},{store:"CORU AHL AVM",hedef:2100,ger:548,hgo:26},{store:"CORU GAZI CD",hedef:900,ger:182,hgo:20},{store:"GIRE GAZI CADDESI",hedef:900,ger:228,hgo:25},{store:"GIRE İNÖNÜ CD",hedef:800,ger:292,hgo:37},{store:"ORDU FATSA",hedef:500,ger:177,hgo:35},{store:"ORDU NOVADA AVM",hedef:1200,ger:290,hgo:24},{store:"ORDU SIRRIPASA CD",hedef:1600,ger:347,hgo:22},{store:"ORDU UNYE UNIPORT AVM",hedef:800,ger:209,hgo:26},{store:"SAMS BAFRA CELIKPARK AVM",hedef:700,ger:218,hgo:31},{store:"SAMS BULVAR",hedef:2100,ger:328,hgo:16},{store:"SAMS CIFTLIK CD 2",hedef:1400,ger:240,hgo:17},{store:"SAMS CITYMALL AVM",hedef:3200,ger:475,hgo:15},{store:"SAMS LOVELET",hedef:1200,ger:181,hgo:15},{store:"SAMS PIAZZA",hedef:3500,ger:821,hgo:23},{store:"SAMS YESILYURT",hedef:2400,ger:417,hgo:17},{store:"SINO SAKARYA CD",hedef:1500,ger:221,hgo:15}
-  ],
-  "Fatih Sulun": [
-    {store:"BALI BANDIRMA LIMAN",hedef:1500,ger:491,hgo:33},{store:"BILE BOZUYUK SARAR",hedef:1100,ger:441,hgo:40},{store:"BURS AHMET TANER KISLALI CD",hedef:1600,ger:411,hgo:26},{store:"BURS ANATOLIUM",hedef:700,ger:416,hgo:59},{store:"BURS AS OUTLET AVM",hedef:700,ger:288,hgo:41},{store:"BURS ATABULVARI CD",hedef:1500,ger:421,hgo:28},{store:"BURS DOWNTOWN AVM",hedef:800,ger:237,hgo:30},{store:"BURS GORUKLE CAD",hedef:1400,ger:253,hgo:18},{store:"BURS INEGOL",hedef:1400,ger:428,hgo:31},{store:"BURS KENT MEYDANI",hedef:1800,ger:454,hgo:25},{store:"BURS KORUPARK",hedef:4300,ger:932,hgo:22},{store:"BURS OKSIJEN SHOPINN AVM",hedef:400,ger:201,hgo:50},{store:"BURS OZDILEKPARK AVM",hedef:1300,ger:479,hgo:37},{store:"BURS PARKUR AVM",hedef:600,ger:283,hgo:47},{store:"BURS SUR YAPI MARKA AVM",hedef:4100,ger:1009,hgo:25},{store:"BURS ZAFER PLAZA",hedef:1600,ger:463,hgo:29}
-  ],
-  "Mustafa Bulut": [
-    {store:"ADIY ADIYAMAN PARK AVM",hedef:1000,ger:281,hgo:28},{store:"BATM BATMAN PARK",hedef:300,ger:116,hgo:39},{store:"BATM PETROL CITY AVM",hedef:800,ger:236,hgo:30},{store:"BING KALIUM AVM",hedef:400,ger:147,hgo:37},{store:"DIYA 75 METRE CD",hedef:1300,ger:171,hgo:13},{store:"DIYA CEYLANPARK AVM",hedef:2500,ger:320,hgo:13},{store:"DIYA FORUM AVM",hedef:2200,ger:453,hgo:21},{store:"ELAZ ELAZIG PARK23",hedef:500,ger:193,hgo:39},{store:"ELAZ ELYSIUM AVM",hedef:1500,ger:417,hgo:28},{store:"GAZI G.ANTEP FR",hedef:900,ger:241,hgo:27},{store:"GAZI GAZIMUHTAR",hedef:1100,ger:182,hgo:17},{store:"GAZI M1 OUTLET",hedef:800,ger:277,hgo:35},{store:"GAZI PRIME MALL",hedef:2300,ger:513,hgo:22},{store:"GAZI SANKOPARK",hedef:1300,ger:485,hgo:37},{store:"KAHR PIAZZA",hedef:1800,ger:448,hgo:25},{store:"MALA MALATYAPARK",hedef:2100,ger:506,hgo:24},{store:"MARD MARDIAN MALL",hedef:1400,ger:232,hgo:17},{store:"MARD MOVAPARK",hedef:500,ger:93,hgo:19},{store:"SANL URFA NOVADA AVM",hedef:1200,ger:104,hgo:9},{store:"SANL URFA PIAZZA",hedef:800,ger:215,hgo:27},{store:"SANL URFACITY",hedef:600,ger:206,hgo:34},{store:"SIIR SIIRT PARK AVM",hedef:800,ger:113,hgo:14},{store:"SIRN CIZRE PARK AVM",hedef:400,ger:84,hgo:21}
-  ],
-  "Pinar Beyaz": [
-    {store:"ADAN 01 BURDA AVM",hedef:1100,ger:234,hgo:21},{store:"ADAN BARAJ YOLU CAD",hedef:1800,ger:169,hgo:9},{store:"ADAN CAKMAK CD",hedef:1200,ger:132,hgo:11},{store:"ADAN KENAN EVREN BLV",hedef:1500,ger:134,hgo:9},{store:"ADAN M1 AVM",hedef:5900,ger:668,hgo:11},{store:"ADAN OPTIMUM",hedef:5900,ger:646,hgo:11},{store:"ADAN TURGUT OZAL CD",hedef:2000,ger:150,hgo:8},{store:"ADAN TURKMENBASI CD",hedef:1700,ger:214,hgo:13},{store:"HATA ANTAKYA YUZUNCU YIL AVM",hedef:800,ger:67,hgo:8},{store:"HATA DORTYOL CD",hedef:1000,ger:141,hgo:14},{store:"HATA ISK PRIMEMALL",hedef:2300,ger:507,hgo:22},{store:"HATA ISKENDERUN PARK FORBES AV",hedef:1400,ger:246,hgo:18},{store:"MERS MERSIN CFR",hedef:1900,ger:321,hgo:17},{store:"MERS MERSIN FR",hedef:5000,ger:609,hgo:12},{store:"MERS NOVADA ERDEMLI AVM",hedef:1400,ger:210,hgo:15},{store:"MERS SAYAPARK AVM",hedef:1700,ger:358,hgo:21},{store:"MERS SİLİFKE CD",hedef:1000,ger:173,hgo:17},{store:"MERS TARSU",hedef:1800,ger:349,hgo:19},{store:"OSMA 328 AVM",hedef:1600,ger:400,hgo:25}
-  ],
-  "Seda Urgan": [
-    {store:"CANA 17 BURDA AVM",hedef:4100,ger:629,hgo:15},{store:"CANA CANAKKALE CARSI CD",hedef:1500,ger:156,hgo:10},{store:"CANA CANAKKALE KIP",hedef:600,ger:133,hgo:22},{store:"EDIR ERASTA AVM",hedef:1500,ger:390,hgo:26},{store:"EDIR KESAN KIPA AVM",hedef:500,ger:190,hgo:38},{store:"EDIR MARGI",hedef:1700,ger:316,hgo:19},{store:"EDIR SARACLAR CD",hedef:500,ger:139,hgo:28},{store:"ISTT SILIVRI CD",hedef:900,ger:166,hgo:18},{store:"ISTT SILIVRI KIP",hedef:700,ger:182,hgo:26},{store:"ISTT SILIVRI MAXI",hedef:800,ger:207,hgo:26},{store:"KIRK 39 BURDA AVM",hedef:1600,ger:309,hgo:19},{store:"KIRK KIRKLARELI CD",hedef:1700,ger:374,hgo:22},{store:"KIRK LULEBURGAZ ISTANBUL CD",hedef:800,ger:203,hgo:25},{store:"TEKI CERKEZKOY KIPA",hedef:1100,ger:275,hgo:25},{store:"TEKI CORLU OMURTAK CD",hedef:1000,ger:192,hgo:19},{store:"TEKI ORION CORLU",hedef:2300,ger:506,hgo:22},{store:"TEKI TEKIRA",hedef:2400,ger:510,hgo:21}
-  ],
-  "Ümit Altunkaynak": [
-    {store:"ISTT AKBATI",hedef:3800,ger:705,hgo:19},{store:"ISTT AKMERKEZ",hedef:1500,ger:178,hgo:12},{store:"ISTT ATIRUS AVM",hedef:500,ger:106,hgo:21},{store:"ISTT AVENUA AVM",hedef:1100,ger:254,hgo:23},{store:"ISTT AVLU 34 AVM",hedef:700,ger:265,hgo:38},{store:"ISTT BESIKTAS MEYDAN",hedef:3200,ger:83,hgo:3},{store:"ISTT BEYLIKDUZU MGR",hedef:1300,ger:333,hgo:26},{store:"ISTT CENNET CD 2",hedef:1200,ger:216,hgo:18},{store:"ISTT CEVAHIR",hedef:7300,ger:1129,hgo:15},{store:"ISTT ESENYURT CITY CENTER AVM",hedef:1400,ger:253,hgo:18},{store:"ISTT GALATASARAY",hedef:2100,ger:281,hgo:13},{store:"ISTT GOKTURK IST CD2",hedef:1300,ger:186,hgo:14},{store:"ISTT HALASKARGAZI CD",hedef:700,ger:67,hgo:10},{store:"ISTT HAVALIMANI IC HATLAR",hedef:1200,ger:326,hgo:27},{store:"ISTT HISTORIA",hedef:1100,ger:248,hgo:23},{store:"ISTT ISTANBUL TERSANE AVM",hedef:800,ger:91,hgo:11},{store:"ISTT ISTIKLAL AVM",hedef:500,ger:112,hgo:22},{store:"ISTT ISTINYEPARK",hedef:5200,ger:751,hgo:14},{store:"ISTT KAGITHANE AXIS AVM",hedef:1300,ger:251,hgo:19},{store:"ISTT KANYON AVM",hedef:1800,ger:126,hgo:7},{store:"ISTT MARMARA CAD",hedef:1000,ger:210,hgo:21},{store:"ISTT MARMARAPARK",hedef:6100,ger:1062,hgo:17},{store:"ISTT MIMAROBA DIA MARE CD",hedef:1700,ger:272,hgo:16},{store:"ISTT NISANTASI CD",hedef:5400,ger:339,hgo:6},{store:"ISTT NISANTASI CITYS AVM",hedef:600,ger:94,hgo:16},{store:"ISTT ORTABAHCE CD",hedef:2000,ger:192,hgo:10},{store:"ISTT ORTAKÖY CD",hedef:800,ger:92,hgo:12},{store:"ISTT OZDILEK AVM",hedef:2400,ger:492,hgo:21},{store:"ISTT PELICAN",hedef:900,ger:324,hgo:36},{store:"ISTT PERLAVISTA AVM",hedef:1000,ger:235,hgo:24},{store:"ISTT SARIYER CD",hedef:2100,ger:139,hgo:7},{store:"ISTT SISLI CD",hedef:1200,ger:86,hgo:7},{store:"ISTT TAKSIM CADDE",hedef:3500,ger:360,hgo:10},{store:"ISTT TORIUM",hedef:800,ger:392,hgo:49},{store:"ISTT TRUMP TOWERS",hedef:1200,ger:151,hgo:13},{store:"ISTT VADI ISTANBUL AVM",hedef:3500,ger:771,hgo:22},{store:"ISTT VALIKONAGI CD",hedef:700,ger:51,hgo:7},{store:"ISTT ZORLU AVM",hedef:2100,ger:274,hgo:13},{store:"VAN VAN AVM",hedef:1500,ger:234,hgo:16},{store:"VAN VANMALL AVM",hedef:900,ger:89,hgo:10}
-  ],
-  "Betul Duran": [
-    {store:"ANTA AKDENİZ PARK AVM",hedef:600,ger:219,hgo:37},{store:"ANTA ALANYA TIME CENTER",hedef:100,ger:41,hgo:41},{store:"ANTA ALANYA UYGUN CENTER AVM",hedef:1700,ger:233,hgo:14},{store:"ANTA ALANYUM",hedef:1300,ger:239,hgo:18},{store:"ANTA ANTALYA KAS",hedef:500,ger:62,hgo:12},{store:"ANTA ANTALYA MGR",hedef:2800,ger:458,hgo:16},{store:"ANTA ATATURK CD",hedef:2300,ger:230,hgo:10},{store:"ANTA BOSTANCIPINARI CD",hedef:600,ger:78,hgo:13},{store:"ANTA ERASTA",hedef:1800,ger:295,hgo:16},{store:"ANTA G-MALL CARREFOURSA AVM",hedef:1000,ger:78,hgo:8},{store:"ANTA KEMER CADDE",hedef:200,ger:56,hgo:28},{store:"ANTA KUMLUCA CD",hedef:700,ger:140,hgo:20},{store:"ANTA LAND OF LEGENDS",hedef:1400,ger:156,hgo:11},{store:"ANTA MALL OF ANTALYA AVM",hedef:2100,ger:515,hgo:25},{store:"ANTA MANAVGAT NOVA MALL",hedef:1300,ger:368,hgo:28},{store:"ANTA MANAVGATCITY AVM 2",hedef:400,ger:99,hgo:25},{store:"ANTA MARKANTALYA AVM",hedef:4300,ger:627,hgo:15},{store:"ANTA OZDILEKPARK",hedef:2700,ger:452,hgo:17},{store:"ANTA SHEMALL",hedef:900,ger:124,hgo:14},{store:"ANTA TERRACITY",hedef:3200,ger:495,hgo:15}
-  ],
-  "Burcin Taskıran": [
-    {store:"MUGL BODR CUMH.CD",hedef:800,ger:113,hgo:14},{store:"MUGL BODR OASIS",hedef:900,ger:145,hgo:16},{store:"MUGL BODRUM AVENUE AVM",hedef:1100,ger:160,hgo:15},{store:"MUGL CADDE",hedef:1500,ger:111,hgo:7},{store:"MUGL DATCA CAD",hedef:700,ger:112,hgo:16},{store:"MUGL ERASTA AVM",hedef:2100,ger:387,hgo:18},{store:"MUGL FESTIVA AVM",hedef:1700,ger:144,hgo:8},{store:"MUGL FETHIYE CARSI CD",hedef:1000,ger:155,hgo:16},{store:"MUGL FETHIYE GOCEK CD",hedef:800,ger:81,hgo:10},{store:"MUGL MARMARIS",hedef:1100,ger:136,hgo:12},{store:"MUGL MARMARIS ATATURK CD",hedef:800,ger:112,hgo:14},{store:"MUGL MIDTOWN",hedef:1500,ger:254,hgo:17},{store:"MUGL POMELON AVM",hedef:1400,ger:263,hgo:19},{store:"MUGL RUYA 48 OUTLET",hedef:1200,ger:281,hgo:23},{store:"MUGL RUYAPARK AVM",hedef:1000,ger:189,hgo:19},{store:"MUGL TURGUTREIS AVM",hedef:800,ger:211,hgo:26}
-  ],
-  "Emre Topcan": [
-    {store:"ISTT AIRPORT AVM",hedef:900,ger:134,hgo:15},{store:"ISTT AQUA FLORYA AVM",hedef:1700,ger:323,hgo:19},{store:"ISTT ATAKOY A PLUS AVM",hedef:1500,ger:188,hgo:13},{store:"ISTT CAPACITY",hedef:3500,ger:554,hgo:16},{store:"ISTT CAROUSEL",hedef:700,ger:113,hgo:16},{store:"ISTT EYUP AXIS AVM",hedef:500,ger:238,hgo:48},{store:"ISTT FLYINN AVM",hedef:800,ger:106,hgo:13},{store:"ISTT GUNESLIPARK",hedef:600,ger:182,hgo:30},{store:"ISTT ISTANBUL FR",hedef:3500,ger:1054,hgo:30},{store:"ISTT ISTASYON CD",hedef:2800,ger:288,hgo:10},{store:"ISTT KALE AVM",hedef:1500,ger:350,hgo:23},{store:"ISTT MARMARA FR",hedef:3700,ger:954,hgo:26},{store:"ISTT METROPORT",hedef:1400,ger:235,hgo:17},{store:"ISTT OLIVIUM",hedef:1100,ger:252,hgo:23},{store:"ISTT SIRINEVLER CAD",hedef:1200,ger:182,hgo:15},{store:"ISTT STARCITY",hedef:1300,ger:350,hgo:27}
-  ],
-  "Esma Gul": [
-    {store:"AFYO AFIUM",hedef:1700,ger:343,hgo:20},{store:"AFYO AFYONPARK AVM",hedef:1300,ger:454,hgo:35},{store:"AFYO IYAS DINAR AVM",hedef:600,ger:133,hgo:22},{store:"BURD GAZI CD",hedef:700,ger:87,hgo:12},{store:"DENI AQUAMALL AVM",hedef:1500,ger:262,hgo:17},{store:"DENI CAMLIK FR",hedef:3500,ger:672,hgo:19},{store:"DENI CINAR CD",hedef:1800,ger:208,hgo:12},{store:"DENI HORIZON AVM",hedef:1000,ger:231,hgo:23},{store:"DENI TERASPARK",hedef:2100,ger:351,hgo:17},{store:"ISPA CARSI",hedef:300,ger:56,hgo:19},{store:"ISPA CENTRIUM GARDEN",hedef:700,ger:97,hgo:14},{store:"ISPA IYAS",hedef:1500,ger:324,hgo:22},{store:"ISPA MEYDAN AVM",hedef:1100,ger:295,hgo:27},{store:"KUTA SERA",hedef:1500,ger:434,hgo:29},{store:"USAK FESTIVA",hedef:1100,ger:220,hgo:20},{store:"USAK ISMETPASA CAD",hedef:400,ger:124,hgo:31}
-  ],
-  "Hatice Yıldız Ertaş": [
-    {store:"ERZI ERZINCANPARK AVM",hedef:600,ger:128,hgo:21},{store:"ERZU ERZURUMAVM",hedef:300,ger:173,hgo:58},{store:"ERZU MNG MALL AVM",hedef:1400,ger:418,hgo:30},{store:"ISTT 212AVM",hedef:2200,ger:398,hgo:18},{store:"ISTT ARENAPARK",hedef:2100,ger:359,hgo:17},{store:"ISTT ARMONIPARK",hedef:1400,ger:356,hgo:25},{store:"ISTT BASAKSEHIR",hedef:400,ger:195,hgo:49},{store:"ISTT BIZ CEVAHIR HALIC AVM",hedef:800,ger:211,hgo:26},{store:"ISTT DEPOSİTE",hedef:500,ger:231,hgo:46},{store:"ISTT GOP BAGLARBASI CD",hedef:1500,ger:283,hgo:19},{store:"ISTT ISFANBUL AVM",hedef:1300,ger:308,hgo:24},{store:"ISTT MALL OF ISTANBUL",hedef:3600,ger:1081,hgo:30},{store:"ISTT TEMA WORLD AVM",hedef:1100,ger:145,hgo:13},{store:"ISTT VEGA ISTANBUL AVM",hedef:800,ger:238,hgo:30},{store:"ISTT VENEZIA MEGA OUTLET AVM",hedef:1800,ger:261,hgo:15}
-  ],
-  "Mehmet Sena Aydin": [
-    {store:"BALI AYVALIK CD",hedef:700,ger:166,hgo:24},{store:"BALI AYVALIK KIRLANGIC AVM",hedef:1100,ger:185,hgo:17},{store:"BALI BALIKESIR 10 BURDA AVM",hedef:2700,ger:565,hgo:21},{store:"BALI EDREMIT NOVADA AVM",hedef:2000,ger:473,hgo:24},{store:"BALI MILLI KUVVETLER CD",hedef:900,ger:243,hgo:27},{store:"BALI YASA OUTLET",hedef:1000,ger:232,hgo:23},{store:"IZMI BOSTANLI CAD",hedef:1800,ger:242,hgo:13},{store:"IZMI CIGLI KIP",hedef:700,ger:166,hgo:24},{store:"IZMI DIKILI CAD",hedef:700,ger:141,hgo:20},{store:"IZMI EFESUS AVM",hedef:1400,ger:338,hgo:24},{store:"IZMI HILLTOWN AVM",hedef:4900,ger:1059,hgo:22},{store:"IZMI K.YAKA CARSI CD",hedef:3800,ger:642,hgo:17},{store:"IZMI NOVADA MENEMEN AVM",hedef:800,ger:173,hgo:22},{store:"IZMI SAKIPAGA AVM",hedef:1300,ger:256,hgo:20},{store:"MANI AKHISAR NOVADA AVM",hedef:1200,ger:299,hgo:25},{store:"MANI ALPHARD AVM",hedef:600,ger:198,hgo:33},{store:"MANI DOGU CD",hedef:900,ger:281,hgo:31},{store:"MANI MAGNESIA",hedef:2300,ger:480,hgo:21},{store:"MANI SALIHLI KIP",hedef:1500,ger:297,hgo:20}
-  ],
-  "Zehra Celik": [
-    {store:"AYDI DIDIM CD",hedef:800,ger:126,hgo:16},{store:"AYDI DIDIM KIPA AVM",hedef:300,ger:67,hgo:22},{store:"AYDI KUSADASI AVM",hedef:1600,ger:379,hgo:24},{store:"AYDI KUSADASI INONU BLV",hedef:900,ger:121,hgo:13},{store:"AYDI KUSADASI MARINA",hedef:1800,ger:171,hgo:10},{store:"AYDI SOKE NOVADA",hedef:1400,ger:294,hgo:21},{store:"AYDI SOKE OUTLET",hedef:1600,ger:411,hgo:26},{store:"IZMI ALACATI",hedef:700,ger:131,hgo:19},{store:"IZMI CESME CADDE PLUS AVM",hedef:800,ger:165,hgo:21},{store:"IZMI CESME CD",hedef:800,ger:96,hgo:12},{store:"IZMI OPTIMUM",hedef:2000,ger:451,hgo:23},{store:"IZMI OPTIMUM 2",hedef:1800,ger:610,hgo:34},{store:"IZMI RENNA PARK AVM",hedef:700,ger:133,hgo:19},{store:"IZMI SELWAY AVM",hedef:700,ger:212,hgo:30},{store:"IZMI SELWAY AVM 2",hedef:1000,ger:144,hgo:14},{store:"IZMI SIRINYER CD",hedef:1700,ger:384,hgo:23},{store:"IZMI URLA BAMBOO AVM",hedef:2200,ger:315,hgo:14}
-  ],
-  "Zeycan Ozcan": [
-    {store:"AYDI ADNAN MENDERES BLV",hedef:1300,ger:277,hgo:21},{store:"AYDI AYDIN FR",hedef:2000,ger:419,hgo:21},{store:"AYDI AYDIN KIP",hedef:1400,ger:214,hgo:15},{store:"AYDI NAZILLI BAMBOO AVM",hedef:900,ger:222,hgo:25},{store:"AYDI OPSMALL AVM",hedef:1600,ger:305,hgo:19},{store:"IZMI ALSANCAK",hedef:1500,ger:74,hgo:5},{store:"IZMI BALCOVA KIP",hedef:1400,ger:222,hgo:16},{store:"IZMI BORNOVA CD",hedef:1300,ger:257,hgo:20},{store:"IZMI EGE PERLA AVM",hedef:800,ger:56,hgo:7},{store:"IZMI FORUM BORNOVA AVM",hedef:4400,ger:660,hgo:15},{store:"IZMI HATAY CAD",hedef:1700,ger:339,hgo:20},{store:"IZMI ISTINYEPARK AVM",hedef:4900,ger:1025,hgo:21},{store:"IZMI IZMIR PARK AVM",hedef:900,ger:256,hgo:28},{store:"IZMI KIBRIS S. 3",hedef:2400,ger:353,hgo:15},{store:"IZMI KONAK PIER AVM",hedef:900,ger:72,hgo:8},{store:"IZMI PARK BORNOVA AVM",hedef:1300,ger:231,hgo:18},{store:"IZMI POINT BORNOVA AVM",hedef:600,ger:277,hgo:46},{store:"IZMI WESTPARK AVM",hedef:900,ger:318,hgo:35}
-  ]
-};
-
-// COLORS FOR AVATARS
-const avatarColors = [
-  '#E91E8C','#BE185D','#9333EA','#7C3AED','#6366F1','#4F46E5',
-  '#2563EB','#0891B2','#059669','#D97706','#DC2626','#7C2D12'
-];
-
-function getInitials(name) {
-  return name.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
-}
-
-function formatNum(n) {
-  return n.toLocaleString('tr-TR');
-}
-
-function hgoClass(hgo) {
-  if (hgo >= 25) return 'hgo-high';
-  if (hgo >= 18) return 'hgo-mid';
-  return 'hgo-low';
-}
-
-// RENDER OM CARDS
-function renderOMs() {
-  const grid = document.getElementById('omGrid');
-  const medals = ['🥇','🥈','🥉'];
-  omData.forEach((om, i) => {
-    const card = document.createElement('div');
-    card.className = `om-card rank-${om.rank} animate-in`;
-    card.style.animationDelay = `${0.3 + i * 0.1}s`;
-    card.innerHTML = `
-      <div class="om-rank">${medals[i]}</div>
-      <div class="om-name">${om.name}</div>
-      <div class="om-role">Operasyon Müdürü</div>
-      <div class="om-hgo-big">%${om.hgo}</div>
-      <div class="om-stats-row">
-        <div class="om-stat-item"><div class="label">Hedef</div><div class="value">${formatNum(om.hedef)}</div></div>
-        <div class="om-stat-item"><div class="label">Gerçekleşen</div><div class="value">${formatNum(om.gerceklesen)}</div></div>
-      </div>
-      <div class="om-bar-bg"><div class="om-bar-fill" style="width:${om.hgo * 3}%"></div></div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-// RENDER BM CARDS
-function renderBMs() {
-  const grid = document.getElementById('bmGrid');
-  bmData.forEach((bm, i) => {
-    const color = avatarColors[i % avatarColors.length];
-    const card = document.createElement('div');
-    card.className = 'bm-card animate-in';
-    card.style.animationDelay = `${0.4 + i * 0.04}s`;
-    const stores = storeData[bm.name] || [];
-    const bestStore = stores.length ? stores.reduce((a,b) => a.hgo > b.hgo ? a : b) : null;
-
-    let storeRows = stores
-      .sort((a,b) => b.hgo - a.hgo)
-      .map(s => {
-        const isBest = bestStore && s.store === bestStore.store;
-        return `<tr class="${isBest ? 'store-best-row' : ''}">
-          <td>${s.store}</td>
-          <td>${formatNum(s.hedef)}</td>
-          <td>${formatNum(s.ger)}</td>
-          <td><span class="store-hgo-badge ${hgoClass(s.hgo)}">%${s.hgo}</span></td>
-        </tr>`;
-      }).join('');
-
-    card.innerHTML = `
-      <div class="bm-card-header" onclick="toggleBM(this)">
-        <div class="bm-left">
-          <div class="bm-avatar" style="background:${color}">${getInitials(bm.name)}</div>
-          <div class="bm-info">
-            <div class="bm-name">${bm.name}</div>
-            <div class="bm-om-label">${bm.om} · ${stores.length} mağaza</div>
-          </div>
-        </div>
-        <div class="bm-right">
-          <div class="bm-hgo">%${bm.hgo}</div>
-          <div class="bm-target-info">${formatNum(bm.gerceklesen)} / ${formatNum(bm.hedef)}</div>
-        </div>
-        <span class="bm-expand-icon">▼</span>
-      </div>
-      <div class="bm-mini-bar"><div class="bm-mini-bar-fill" style="width:${bm.hgo * 3}%"></div></div>
-      <div class="bm-stores">
-        <div class="store-table-wrap">
-          <table class="store-table">
-            <thead><tr><th>Mağaza</th><th>Hedef</th><th>Gerçekleşen</th><th>HGO</th></tr></thead>
-            <tbody>${storeRows}</tbody>
-          </table>
-        </div>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-function toggleBM(header) {
-  const card = header.closest('.bm-card');
-  card.classList.toggle('expanded');
-}
-
-// INIT
-renderOMs();
-renderBMs();
+const omData=[{name:"İbrahim Emre Karasırt",hedef:196900,gerceklesen:50825,hgo:26,rank:1},{name:"Hazel Aydemir",hedef:219100,gerceklesen:53096,hgo:24,rank:2},{name:"Derya Öztürk",hedef:240200,gerceklesen:58409,hgo:24,rank:3}];
+const bmData=[{name:"Fatih Sulun",om:"Hazel Aydemir",hedef:24800,gerceklesen:9007,hgo:36},{name:"Ruveyda Un",om:"Derya Öztürk",hedef:24900,gerceklesen:8088,hgo:32},{name:"Hatice Yıldız Ertaş",om:"İbrahim Emre Karasırt",hedef:19800,gerceklesen:6225,hgo:31},{name:"Bora Dedeoglu",om:"Hazel Aydemir",hedef:25700,gerceklesen:7346,hgo:29},{name:"Mustafa Bulut",om:"Hazel Aydemir",hedef:26500,gerceklesen:7635,hgo:29},{name:"Meliha Ilhan",om:"Derya Öztürk",hedef:35400,gerceklesen:9788,hgo:28},{name:"Aysun Cetin",om:"Derya Öztürk",hedef:41500,gerceklesen:11205,hgo:27},{name:"Emre Topcan",om:"İbrahim Emre Karasırt",hedef:26700,gerceklesen:7210,hgo:27},{name:"Esma Gul",om:"İbrahim Emre Karasırt",hedef:20800,gerceklesen:5569,hgo:27},{name:"Mehmet Sena Aydin",om:"İbrahim Emre Karasırt",hedef:30300,gerceklesen:8297,hgo:27},{name:"Zehra Celik",om:"İbrahim Emre Karasırt",hedef:20800,gerceklesen:5598,hgo:27},{name:"Seda Urgan",om:"Hazel Aydemir",hedef:23700,gerceklesen:6110,hgo:26},{name:"Zeycan Ozcan",om:"İbrahim Emre Karasırt",hedef:30200,gerceklesen:7248,hgo:24},{name:"Betul Duran",om:"İbrahim Emre Karasırt",hedef:29900,gerceklesen:6773,hgo:23},{name:"Deniz Uysal",om:"Derya Öztürk",hedef:26500,gerceklesen:5910,hgo:22},{name:"Burcin Taskıran",om:"İbrahim Emre Karasırt",hedef:18400,gerceklesen:3905,hgo:21},{name:"Nur Ekici Küçük",om:"Derya Öztürk",hedef:36600,gerceklesen:7866,hgo:21},{name:"Taylan Yılmaz",om:"Derya Öztürk",hedef:45000,gerceklesen:9580,hgo:21},{name:"Buse Aksu",om:"Derya Öztürk",hedef:30300,gerceklesen:5972,hgo:20},{name:"Ümit Altunkaynak",om:"Hazel Aydemir",hedef:77400,gerceklesen:15519,hgo:20},{name:"Pinar Beyaz",om:"Hazel Aydemir",hedef:41000,gerceklesen:7479,hgo:18}];
+const storeData={"Aysun Cetin":[{store:"ANKA 365 AVM",hedef:1300,ger:300,hgo:23},{store:"ANKA ANATOLIUM",hedef:500,ger:230,hgo:46},{store:"ANKA ARCADIUM AVM",hedef:2200,ger:362,hgo:16},{store:"ANKA ARMADA",hedef:1100,ger:261,hgo:24},{store:"ANKA BILKENT",hedef:1400,ger:159,hgo:11},{store:"ANKA CEPA",hedef:2300,ger:561,hgo:24},{store:"ANKA GORDION AVM",hedef:2400,ger:590,hgo:25},{store:"ANKA KENTPARK",hedef:4000,ger:988,hgo:25},{store:"ANKA NATA VEGA AVM",hedef:3000,ger:699,hgo:23},{store:"ANKA NEXTLEVEL",hedef:900,ger:140,hgo:16},{store:"ANKA OPTIMUM",hedef:2500,ger:540,hgo:22},{store:"ANKA SINCAN CD",hedef:900,ger:310,hgo:34},{store:"ARTV ARTRIUM AVM",hedef:400,ger:138,hgo:35},{store:"CANK YUNUS",hedef:300,ger:194,hgo:65},{store:"KAST BARUT",hedef:500,ger:129,hgo:26},{store:"KAST KASTAMALL AVM",hedef:600,ger:266,hgo:44},{store:"KIRI PODIUM AVM",hedef:1400,ger:534,hgo:38},{store:"RIZE CUMHURIYET CD",hedef:900,ger:215,hgo:24},{store:"RIZE SIMAL AVM",hedef:1700,ger:588,hgo:35},{store:"SIVA ISTASYON CD",hedef:1500,ger:362,hgo:24},{store:"SIVA PRIMEMALL AVM",hedef:1100,ger:396,hgo:36},{store:"TOKA NOVADA AVM",hedef:1900,ger:516,hgo:27},{store:"TRAB ATAPARK",hedef:700,ger:226,hgo:32},{store:"TRAB CEVAHIR OUTLET AVM",hedef:600,ger:293,hgo:49},{store:"TRAB TRABZON FR",hedef:3100,ger:969,hgo:31},{store:"TRAB UZUN SOKAK 2",hedef:3700,ger:998,hgo:27},{store:"YOZG NOVADA AVM",hedef:600,ger:241,hgo:40}],"Buse Aksu":[{store:"ISTA ALTIYOL CD",hedef:2200,ger:272,hgo:12},{store:"ISTA BAGDAT CAD",hedef:2700,ger:213,hgo:8},{store:"ISTA BAHARIYE CD 2",hedef:2900,ger:278,hgo:10},{store:"ISTA ERENKOY 2",hedef:2000,ger:212,hgo:11},{store:"ISTA HALITAGA CAD",hedef:800,ger:105,hgo:13},{store:"ISTA HILLTOWN KUCUKYALI 2 AVM",hedef:3700,ger:1071,hgo:29},{store:"ISTA KOZZY",hedef:1600,ger:294,hgo:18},{store:"ISTA MALTEPE CFR",hedef:1400,ger:551,hgo:39},{store:"ISTA MALTEPE PIAZZA AVM",hedef:3600,ger:1174,hgo:33},{store:"ISTA MARMARA ANATOLIUM AVM",hedef:900,ger:169,hgo:19},{store:"ISTA MUHURDAR CD",hedef:1400,ger:210,hgo:15},{store:"ISTA OPTIMUM",hedef:1800,ger:454,hgo:25},{store:"ISTA PALLADIUM 2",hedef:2000,ger:429,hgo:21},{store:"ISTA RITIM ISTANBUL AVM",hedef:1200,ger:224,hgo:19},{store:"ISTA SASKINBAKKAL CD",hedef:1000,ger:180,hgo:18},{store:"ISTA YAYLADA AVM",hedef:1100,ger:136,hgo:12}],"Deniz Uysal":[{store:"ISTA GAZIPASA CD",hedef:1900,ger:324,hgo:17},{store:"ISTA MALTEPE CAD",hedef:1400,ger:217,hgo:16},{store:"ISTA MARINA",hedef:2700,ger:669,hgo:25},{store:"ISTA NEOMARIN",hedef:1400,ger:383,hgo:27},{store:"ISTA PENDIK 19 MAYIS CD",hedef:1100,ger:191,hgo:17},{store:"ISTA RINGS AVM",hedef:800,ger:173,hgo:22},{store:"ISTA SARIGAZI CD",hedef:1000,ger:153,hgo:15},{store:"ISTA SULTANBEYLI ATLAS",hedef:1500,ger:366,hgo:24},{store:"ISTA SULTANBEYLI PLATO",hedef:800,ger:139,hgo:17},{store:"ISTA TUZLA MARINA AVM",hedef:2400,ger:435,hgo:18},{store:"ISTA TUZLAPORT AVM",hedef:1300,ger:183,hgo:14},{store:"ISTA VIAPORT",hedef:2400,ger:506,hgo:21},{store:"ISTA VIAPORT 2",hedef:2100,ger:364,hgo:17},{store:"KOCA GEBZECENTER",hedef:1800,ger:693,hgo:39},{store:"KOCA OKSIJEN SHOPINN AVM",hedef:700,ger:222,hgo:32},{store:"YALO GAZIPASA CD",hedef:1300,ger:245,hgo:19},{store:"YALO STAR AVM",hedef:1200,ger:333,hgo:28},{store:"YALO YALOVA KIPA",hedef:700,ger:314,hgo:45}],"Meliha Ilhan":[{store:"AKSA EFOR",hedef:1100,ger:347,hgo:32},{store:"ANKA ACITY",hedef:1300,ger:439,hgo:34},{store:"ANKA ANKAMALL",hedef:2800,ger:833,hgo:30},{store:"ANKA ANKAMALL 2",hedef:2000,ger:869,hgo:43},{store:"ANKA ANKARA FR",hedef:1700,ger:546,hgo:32},{store:"ANKA ANTARES",hedef:3000,ger:688,hgo:23},{store:"ANKA ATAKULE AVM",hedef:1600,ger:289,hgo:18},{store:"ANKA ATLANTIS",hedef:2100,ger:566,hgo:27},{store:"ANKA FTZ AVM",hedef:600,ger:139,hgo:23},{store:"ANKA KUZUEFFECT AVM",hedef:800,ger:110,hgo:14},{store:"ANKA ONE TOWER AVM",hedef:1200,ger:176,hgo:15},{store:"ANKA PANORA",hedef:2900,ger:649,hgo:22},{store:"ANKA PODIUM AVM",hedef:1300,ger:285,hgo:22},{store:"ANKA TAURUS",hedef:1300,ger:293,hgo:23},{store:"ANKA VEGA SUBAYEVLERI AVM",hedef:800,ger:334,hgo:42},{store:"KAYS ILDEM AVM",hedef:500,ger:249,hgo:50},{store:"KAYS KAYSERI FR",hedef:3000,ger:864,hgo:29},{store:"KAYS KAYSERIPARK",hedef:2300,ger:620,hgo:27},{store:"KAYS KUMSMALL AVM",hedef:400,ger:213,hgo:53},{store:"KAYS MEYSU AVM",hedef:600,ger:203,hgo:34},{store:"NEVS KAPADOKYA FR",hedef:900,ger:256,hgo:28},{store:"NEVS NISSARA AVM",hedef:900,ger:315,hgo:35},{store:"NIGD NIGDE CD",hedef:800,ger:175,hgo:22},{store:"NIGD TEMA PARK AVM",hedef:1500,ger:330,hgo:22}],"Nur Ekici Küçük":[{store:"ISTA AKASYA AVM",hedef:4900,ger:929,hgo:19},{store:"ISTA AKYAKA PARK",hedef:1300,ger:293,hgo:23},{store:"ISTA ALEMDAG CD",hedef:2200,ger:403,hgo:18},{store:"ISTA ALEMDAG CD2",hedef:1800,ger:324,hgo:18},{store:"ISTA BRANDIUM",hedef:1500,ger:192,hgo:13},{store:"ISTA BRANDIUM AVM POP-UP",hedef:1300,ger:229,hgo:18},{store:"ISTA BUYAKA",hedef:2100,ger:641,hgo:31},{store:"ISTA CANPARK AVM",hedef:1200,ger:445,hgo:37},{store:"ISTA CAPITOL",hedef:1700,ger:417,hgo:25},{store:"ISTA EMAAR SQUARE AVM",hedef:3900,ger:1153,hgo:30},{store:"ISTA ICERENKOY CFR",hedef:2800,ger:538,hgo:19},{store:"ISTA METROGARDEN AVM",hedef:2200,ger:584,hgo:27},{store:"ISTA METROPOL AVM",hedef:2400,ger:557,hgo:23},{store:"ISTA NAUTILUS",hedef:2000,ger:388,hgo:19},{store:"ISTA NEV CARSI AVM",hedef:1000,ger:181,hgo:18},{store:"ISTA UMR MEYDAN",hedef:2700,ger:433,hgo:16},{store:"ISTA WATER GARDEN AVM",hedef:1600,ger:159,hgo:10}],"Ruveyda Un":[{store:"BOLU 14 BURDA AVM",hedef:900,ger:378,hgo:42},{store:"BOLU CADDE AVM",hedef:1400,ger:263,hgo:19},{store:"BOLU HIGHWAY",hedef:1300,ger:645,hgo:50},{store:"DUZC KREMPARK",hedef:1000,ger:477,hgo:48},{store:"KOCA 41 BURDA AVM",hedef:3000,ger:1060,hgo:35},{store:"KOCA ARASTAPARK AVM",hedef:1400,ger:375,hgo:27},{store:"KOCA HURRIYET CD",hedef:3400,ger:452,hgo:13},{store:"KOCA ISTIKLAL CD",hedef:1100,ger:393,hgo:36},{store:"KOCA IZMIT OUTLET CENTER",hedef:1700,ger:485,hgo:29},{store:"KOCA SYMBOL AVM",hedef:1700,ger:657,hgo:39},{store:"SAKA 54 CADDE AVM",hedef:1500,ger:522,hgo:35},{store:"SAKA ADAPAZARI AGORA",hedef:700,ger:448,hgo:64},{store:"SAKA CARK CD",hedef:1500,ger:315,hgo:21},{store:"SAKA KARASU CD",hedef:800,ger:204,hgo:26},{store:"SAKA NG SAPANCA AVM",hedef:600,ger:237,hgo:40},{store:"SAKA SERDIVAN",hedef:1200,ger:730,hgo:61},{store:"SAKARYA ADA CENTER",hedef:1700,ger:447,hgo:26}],"Taylan Yılmaz":[{store:"ANKA 7. CD",hedef:3100,ger:345,hgo:11},{store:"ANKA CEMAL GURSEL CD",hedef:1700,ger:203,hgo:12},{store:"ANKA IZMIR CD",hedef:1000,ger:114,hgo:11},{store:"ANKA KARTALTEPE AVM",hedef:400,ger:187,hgo:47},{store:"ANKA KASMIR AVM",hedef:1400,ger:262,hgo:19},{store:"ANKA KIZILAY 1",hedef:4400,ger:436,hgo:10},{store:"ANKA KIZILAY MEYDAN",hedef:2700,ger:282,hgo:10},{store:"ANKA METROMALL AVM",hedef:4000,ger:1047,hgo:26},{store:"ANKA TUNALI HILMI CD 2",hedef:3900,ger:411,hgo:11},{store:"BART BARTIN CD",hedef:1100,ger:236,hgo:21},{store:"ESKI DOKTORLAR CD 2",hedef:2400,ger:555,hgo:23},{store:"ESKI ESPARK",hedef:4900,ger:1202,hgo:25},{store:"ESKI VEGA OUTLET AVM",hedef:1900,ger:647,hgo:34},{store:"KARA KARAMANPARK",hedef:700,ger:240,hgo:34},{store:"KARB KARES",hedef:1100,ger:303,hgo:28},{store:"KONY ENNTEPE AVM",hedef:900,ger:335,hgo:37},{store:"KONY EREGLI PARK AVM",hedef:600,ger:250,hgo:42},{store:"KONY KENT PLAZA",hedef:1200,ger:442,hgo:37},{store:"KONY KULESITE",hedef:1500,ger:436,hgo:29},{store:"KONY M1 AVM",hedef:1100,ger:381,hgo:35},{store:"KONY NOVADA AVM",hedef:400,ger:174,hgo:44},{store:"ZONG 67 BURDA AVM",hedef:2300,ger:548,hgo:24},{store:"ZONG EREGLI OZDEMIR AVM",hedef:1200,ger:366,hgo:31},{store:"ZONG EREYLIN AVM",hedef:1100,ger:178,hgo:16}],"Bora Dedeoglu":[{store:"AMAS AMASYA PARK AVM",hedef:900,ger:382,hgo:42},{store:"CORU AHL AVM",hedef:2100,ger:699,hgo:33},{store:"CORU GAZI CD",hedef:900,ger:228,hgo:25},{store:"GIRE GAZI CADDESI",hedef:900,ger:289,hgo:32},{store:"GIRE İNÖNÜ CD",hedef:800,ger:384,hgo:48},{store:"ORDU FATSA",hedef:500,ger:252,hgo:50},{store:"ORDU NOVADA AVM",hedef:1200,ger:410,hgo:34},{store:"ORDU SIRRIPASA CD",hedef:1600,ger:471,hgo:29},{store:"ORDU UNYE UNIPORT AVM",hedef:800,ger:291,hgo:36},{store:"SAMS BAFRA CELIKPARK AVM",hedef:700,ger:298,hgo:43},{store:"SAMS BULVAR",hedef:2100,ger:419,hgo:20},{store:"SAMS CIFTLIK CD 2",hedef:1400,ger:311,hgo:22},{store:"SAMS CITYMALL AVM",hedef:3200,ger:637,hgo:20},{store:"SAMS LOVELET",hedef:1200,ger:280,hgo:23},{store:"SAMS PIAZZA",hedef:3500,ger:1141,hgo:33},{store:"SAMS YESILYURT",hedef:2400,ger:551,hgo:23},{store:"SINO SAKARYA CD",hedef:1500,ger:303,hgo:20}],"Fatih Sulun":[{store:"BALI BANDIRMA LIMAN",hedef:1500,ger:617,hgo:41},{store:"BILE BOZUYUK SARAR",hedef:1100,ger:565,hgo:51},{store:"BURS AHMET TANER KISLALI CD",hedef:1600,ger:472,hgo:30},{store:"BURS ANATOLIUM",hedef:700,ger:517,hgo:74},{store:"BURS AS OUTLET AVM",hedef:700,ger:390,hgo:56},{store:"BURS ATABULVARI CD",hedef:1500,ger:493,hgo:33},{store:"BURS DOWNTOWN AVM",hedef:800,ger:305,hgo:38},{store:"BURS GORUKLE CAD",hedef:1400,ger:291,hgo:21},{store:"BURS INEGOL",hedef:1400,ger:520,hgo:37},{store:"BURS KENT MEYDANI",hedef:1800,ger:590,hgo:33},{store:"BURS KORUPARK",hedef:4300,ger:1191,hgo:28},{store:"BURS OKSIJEN SHOPINN AVM",hedef:400,ger:261,hgo:65},{store:"BURS OZDILEKPARK AVM",hedef:1300,ger:589,hgo:45},{store:"BURS PARKUR AVM",hedef:600,ger:390,hgo:65},{store:"BURS SUR YAPI MARKA AVM",hedef:4100,ger:1260,hgo:31},{store:"BURS ZAFER PLAZA",hedef:1600,ger:556,hgo:35}],"Mustafa Bulut":[{store:"ADIY ADIYAMAN PARK AVM",hedef:1000,ger:342,hgo:34},{store:"BATM BATMAN PARK",hedef:300,ger:144,hgo:48},{store:"BATM PETROL CITY AVM",hedef:800,ger:300,hgo:38},{store:"BING KALIUM AVM",hedef:400,ger:172,hgo:43},{store:"DIYA 75 METRE CD",hedef:1300,ger:202,hgo:16},{store:"DIYA CEYLANPARK AVM",hedef:2500,ger:416,hgo:17},{store:"DIYA FORUM AVM",hedef:2200,ger:591,hgo:27},{store:"ELAZ ELAZIG PARK23",hedef:500,ger:252,hgo:50},{store:"ELAZ ELYSIUM AVM",hedef:1500,ger:529,hgo:35},{store:"GAZI G.ANTEP FR",hedef:900,ger:329,hgo:37},{store:"GAZI GAZIMUHTAR",hedef:1100,ger:200,hgo:18},{store:"GAZI M1 OUTLET",hedef:800,ger:361,hgo:45},{store:"GAZI PRIME MALL",hedef:2300,ger:622,hgo:27},{store:"GAZI SANKOPARK",hedef:1300,ger:590,hgo:45},{store:"KAHR PIAZZA",hedef:1800,ger:596,hgo:33},{store:"MALA MALATYAPARK",hedef:2100,ger:644,hgo:31},{store:"MARD MARDIAN MALL",hedef:1400,ger:308,hgo:22},{store:"MARD MOVAPARK",hedef:500,ger:109,hgo:22},{store:"SANL URFA NOVADA AVM",hedef:1200,ger:133,hgo:11},{store:"SANL URFA PIAZZA",hedef:800,ger:293,hgo:37},{store:"SANL URFACITY",hedef:600,ger:241,hgo:40},{store:"SIIR SIIRT PARK AVM",hedef:800,ger:150,hgo:19},{store:"SIRN CIZRE PARK AVM",hedef:400,ger:111,hgo:28}],"Pinar Beyaz":[{store:"ADAN 01 BURDA AVM",hedef:1100,ger:313,hgo:28},{store:"ADAN BARAJ YOLU CAD",hedef:1800,ger:203,hgo:11},{store:"ADAN CAKMAK CD",hedef:1200,ger:152,hgo:13},{store:"ADAN KENAN EVREN BLV",hedef:1500,ger:166,hgo:11},{store:"ADAN M1 AVM",hedef:5900,ger:890,hgo:15},{store:"ADAN OPTIMUM",hedef:5900,ger:869,hgo:15},{store:"ADAN TURGUT OZAL CD",hedef:2000,ger:185,hgo:9},{store:"ADAN TURKMENBASI CD",hedef:1700,ger:252,hgo:15},{store:"HATA ANTAKYA YUZUNCU YIL AVM",hedef:800,ger:89,hgo:11},{store:"HATA DORTYOL CD",hedef:1000,ger:165,hgo:17},{store:"HATA ISK PRIMEMALL",hedef:2300,ger:672,hgo:29},{store:"HATA ISKENDERUN PARK FORBES AV",hedef:1400,ger:338,hgo:24},{store:"MERS MERSIN CFR",hedef:1900,ger:412,hgo:22},{store:"MERS MERSIN FR",hedef:5000,ger:827,hgo:17},{store:"MERS NOVADA ERDEMLI AVM",hedef:1400,ger:270,hgo:19},{store:"MERS SAYAPARK AVM",hedef:1700,ger:477,hgo:28},{store:"MERS SİLİFKE CD",hedef:1000,ger:237,hgo:24},{store:"MERS TARSU",hedef:1800,ger:452,hgo:25},{store:"OSMA 328 AVM",hedef:1600,ger:510,hgo:32}],"Seda Urgan":[{store:"CANA 17 BURDA AVM",hedef:4100,ger:849,hgo:21},{store:"CANA CANAKKALE CARSI CD",hedef:1500,ger:190,hgo:13},{store:"CANA CANAKKALE KIP",hedef:600,ger:181,hgo:30},{store:"EDIR ERASTA AVM",hedef:1500,ger:526,hgo:35},{store:"EDIR KESAN KIPA AVM",hedef:500,ger:247,hgo:49},{store:"EDIR MARGI",hedef:1700,ger:400,hgo:24},{store:"EDIR SARACLAR CD",hedef:500,ger:165,hgo:33},{store:"ISTT SILIVRI CD",hedef:900,ger:197,hgo:22},{store:"ISTT SILIVRI KIP",hedef:700,ger:215,hgo:31},{store:"ISTT SILIVRI MAXI",hedef:800,ger:272,hgo:34},{store:"KIRK 39 BURDA AVM",hedef:1600,ger:381,hgo:24},{store:"KIRK KIRKLARELI CD",hedef:1700,ger:420,hgo:25},{store:"KIRK LULEBURGAZ ISTANBUL CD",hedef:800,ger:229,hgo:29},{store:"TEKI CERKEZKOY KIPA",hedef:1100,ger:351,hgo:32},{store:"TEKI CORLU OMURTAK CD",hedef:1000,ger:225,hgo:23},{store:"TEKI ORION CORLU",hedef:2300,ger:631,hgo:27},{store:"TEKI TEKIRA",hedef:2400,ger:631,hgo:26}],"Ümit Altunkaynak":[{store:"ISTT AKBATI",hedef:3800,ger:903,hgo:24},{store:"ISTT AKMERKEZ",hedef:1500,ger:227,hgo:15},{store:"ISTT ATIRUS AVM",hedef:500,ger:137,hgo:27},{store:"ISTT AVENUA AVM",hedef:1100,ger:330,hgo:30},{store:"ISTT AVLU 34 AVM",hedef:700,ger:329,hgo:47},{store:"ISTT BESIKTAS MEYDAN",hedef:3200,ger:122,hgo:4},{store:"ISTT BEYLIKDUZU MGR",hedef:1300,ger:411,hgo:32},{store:"ISTT CENNET CD 2",hedef:1200,ger:270,hgo:23},{store:"ISTT CEVAHIR",hedef:7300,ger:1509,hgo:21},{store:"ISTT ESENYURT CITY CENTER AVM",hedef:1400,ger:327,hgo:23},{store:"ISTT GALATASARAY",hedef:2100,ger:415,hgo:20},{store:"ISTT GOKTURK IST CD2",hedef:1300,ger:223,hgo:17},{store:"ISTT HALASKARGAZI CD",hedef:700,ger:83,hgo:12},{store:"ISTT HAVALIMANI IC HATLAR",hedef:1200,ger:353,hgo:29},{store:"ISTT HISTORIA",hedef:1100,ger:314,hgo:29},{store:"ISTT ISTANBUL TERSANE AVM",hedef:800,ger:139,hgo:17},{store:"ISTT ISTIKLAL AVM",hedef:500,ger:175,hgo:35},{store:"ISTT ISTINYEPARK",hedef:5200,ger:1007,hgo:19},{store:"ISTT KAGITHANE AXIS AVM",hedef:1300,ger:324,hgo:25},{store:"ISTT KANYON AVM",hedef:1800,ger:186,hgo:10},{store:"ISTT MARMARA CAD",hedef:1000,ger:255,hgo:26},{store:"ISTT MARMARAPARK",hedef:6100,ger:1368,hgo:22},{store:"ISTT MIMAROBA DIA MARE CD",hedef:1700,ger:317,hgo:19},{store:"ISTT NISANTASI CD",hedef:5400,ger:461,hgo:9},{store:"ISTT NISANTASI CITYS AVM",hedef:600,ger:130,hgo:22},{store:"ISTT ORTABAHCE CD",hedef:2000,ger:256,hgo:13},{store:"ISTT ORTAKÖY CD",hedef:800,ger:122,hgo:15},{store:"ISTT OZDILEK AVM",hedef:2400,ger:631,hgo:26},{store:"ISTT PELICAN",hedef:900,ger:424,hgo:47},{store:"ISTT PERLAVISTA AVM",hedef:1000,ger:281,hgo:28},{store:"ISTT SARIYER CD",hedef:2100,ger:165,hgo:8},{store:"ISTT SISLI CD",hedef:1200,ger:118,hgo:10},{store:"ISTT TAKSIM CADDE",hedef:3500,ger:554,hgo:16},{store:"ISTT TORIUM",hedef:800,ger:511,hgo:64},{store:"ISTT TRUMP TOWERS",hedef:1200,ger:209,hgo:17},{store:"ISTT VADI ISTANBUL AVM",hedef:3500,ger:1068,hgo:31},{store:"ISTT VALIKONAGI CD",hedef:700,ger:66,hgo:9},{store:"ISTT ZORLU AVM",hedef:2100,ger:369,hgo:18},{store:"VAN VAN AVM",hedef:1500,ger:307,hgo:20},{store:"VAN VANMALL AVM",hedef:900,ger:123,hgo:14}],"Betul Duran":[{store:"ANTA AKDENİZ PARK AVM",hedef:600,ger:294,hgo:49},{store:"ANTA ALANYA TIME CENTER",hedef:100,ger:52,hgo:52},{store:"ANTA ALANYA UYGUN CENTER AVM",hedef:1700,ger:312,hgo:18},{store:"ANTA ALANYUM",hedef:1300,ger:341,hgo:26},{store:"ANTA ANTALYA KAS",hedef:500,ger:91,hgo:18},{store:"ANTA ANTALYA MGR",hedef:2800,ger:646,hgo:23},{store:"ANTA ATATURK CD",hedef:2300,ger:333,hgo:14},{store:"ANTA BOSTANCIPINARI CD",hedef:600,ger:98,hgo:16},{store:"ANTA ERASTA",hedef:1800,ger:417,hgo:23},{store:"ANTA G-MALL CARREFOURSA AVM",hedef:1000,ger:109,hgo:11},{store:"ANTA KEMER CADDE",hedef:200,ger:79,hgo:40},{store:"ANTA KUMLUCA CD",hedef:700,ger:170,hgo:24},{store:"ANTA LAND OF LEGENDS",hedef:1400,ger:234,hgo:17},{store:"ANTA MALL OF ANTALYA AVM",hedef:2100,ger:686,hgo:33},{store:"ANTA MANAVGAT NOVA MALL",hedef:1300,ger:481,hgo:37},{store:"ANTA MANAVGATCITY AVM 2",hedef:400,ger:130,hgo:33},{store:"ANTA MARKANTALYA AVM",hedef:4300,ger:864,hgo:20},{store:"ANTA OZDILEKPARK",hedef:2700,ger:584,hgo:22},{store:"ANTA SHEMALL",hedef:900,ger:163,hgo:18},{store:"ANTA TERRACITY",hedef:3200,ger:689,hgo:22}],"Burcin Taskıran":[{store:"MUGL BODR CUMH.CD",hedef:800,ger:165,hgo:21},{store:"MUGL BODR OASIS",hedef:900,ger:199,hgo:22},{store:"MUGL BODRUM AVENUE AVM",hedef:1100,ger:202,hgo:18},{store:"MUGL CADDE",hedef:1500,ger:132,hgo:9},{store:"MUGL DATCA CAD",hedef:700,ger:150,hgo:21},{store:"MUGL ERASTA AVM",hedef:2100,ger:581,hgo:28},{store:"MUGL FESTIVA AVM",hedef:1700,ger:196,hgo:12},{store:"MUGL FETHIYE CARSI CD",hedef:1000,ger:216,hgo:22},{store:"MUGL FETHIYE GOCEK CD",hedef:800,ger:129,hgo:16},{store:"MUGL MARMARIS",hedef:1100,ger:183,hgo:17},{store:"MUGL MARMARIS ATATURK CD",hedef:800,ger:170,hgo:21},{store:"MUGL MIDTOWN",hedef:1500,ger:323,hgo:22},{store:"MUGL POMELON AVM",hedef:1400,ger:343,hgo:25},{store:"MUGL RUYA 48 OUTLET",hedef:1200,ger:396,hgo:33},{store:"MUGL RUYAPARK AVM",hedef:1000,ger:238,hgo:24},{store:"MUGL TURGUTREIS AVM",hedef:800,ger:282,hgo:35}],"Emre Topcan":[{store:"ISTT AIRPORT AVM",hedef:900,ger:174,hgo:19},{store:"ISTT AQUA FLORYA AVM",hedef:1700,ger:479,hgo:28},{store:"ISTT ATAKOY A PLUS AVM",hedef:1500,ger:249,hgo:17},{store:"ISTT CAPACITY",hedef:3500,ger:717,hgo:20},{store:"ISTT CAROUSEL",hedef:700,ger:156,hgo:22},{store:"ISTT EYUP AXIS AVM",hedef:500,ger:307,hgo:61},{store:"ISTT FLYINN AVM",hedef:800,ger:126,hgo:16},{store:"ISTT GUNESLIPARK",hedef:600,ger:216,hgo:36},{store:"ISTT ISTANBUL FR",hedef:3500,ger:1392,hgo:40},{store:"ISTT ISTASYON CD",hedef:2800,ger:383,hgo:14},{store:"ISTT KALE AVM",hedef:1500,ger:459,hgo:31},{store:"ISTT MARMARA FR",hedef:3700,ger:1244,hgo:34},{store:"ISTT METROPORT",hedef:1400,ger:294,hgo:21},{store:"ISTT OLIVIUM",hedef:1100,ger:349,hgo:32},{store:"ISTT SIRINEVLER CAD",hedef:1200,ger:215,hgo:18},{store:"ISTT STARCITY",hedef:1300,ger:450,hgo:35}],"Esma Gul":[{store:"AFYO AFIUM",hedef:1700,ger:481,hgo:28},{store:"AFYO AFYONPARK AVM",hedef:1300,ger:597,hgo:46},{store:"AFYO IYAS DINAR AVM",hedef:600,ger:205,hgo:34},{store:"BURD GAZI CD",hedef:700,ger:107,hgo:15},{store:"DENI AQUAMALL AVM",hedef:1500,ger:316,hgo:21},{store:"DENI CAMLIK FR",hedef:3500,ger:864,hgo:25},{store:"DENI CINAR CD",hedef:1800,ger:249,hgo:14},{store:"DENI HORIZON AVM",hedef:1000,ger:315,hgo:32},{store:"DENI TERASPARK",hedef:2100,ger:454,hgo:22},{store:"ISPA CARSI",hedef:300,ger:64,hgo:21},{store:"ISPA CENTRIUM GARDEN",hedef:700,ger:130,hgo:19},{store:"ISPA IYAS",hedef:1500,ger:438,hgo:29},{store:"ISPA MEYDAN AVM",hedef:1100,ger:371,hgo:34},{store:"KUTA SERA",hedef:1500,ger:537,hgo:36},{store:"USAK FESTIVA",hedef:1100,ger:290,hgo:26},{store:"USAK ISMETPASA CAD",hedef:400,ger:151,hgo:38}],"Hatice Yıldız Ertaş":[{store:"ERZI ERZINCANPARK AVM",hedef:600,ger:167,hgo:28},{store:"ERZU ERZURUMAVM",hedef:300,ger:221,hgo:74},{store:"ERZU MNG MALL AVM",hedef:1400,ger:542,hgo:39},{store:"ISTT 212AVM",hedef:2200,ger:587,hgo:27},{store:"ISTT ARENAPARK",hedef:2100,ger:453,hgo:22},{store:"ISTT ARMONIPARK",hedef:1400,ger:420,hgo:30},{store:"ISTT BASAKSEHIR",hedef:400,ger:217,hgo:54},{store:"ISTT BIZ CEVAHIR HALIC AVM",hedef:800,ger:283,hgo:35},{store:"ISTT DEPOSİTE",hedef:500,ger:332,hgo:66},{store:"ISTT GOP BAGLARBASI CD",hedef:1500,ger:320,hgo:21},{store:"ISTT ISFANBUL AVM",hedef:1300,ger:394,hgo:30},{store:"ISTT MALL OF ISTANBUL",hedef:3600,ger:1432,hgo:40},{store:"ISTT TEMA WORLD AVM",hedef:1100,ger:204,hgo:19},{store:"ISTT VEGA ISTANBUL AVM",hedef:800,ger:300,hgo:38},{store:"ISTT VENEZIA MEGA OUTLET AVM",hedef:1800,ger:353,hgo:20}],"Mehmet Sena Aydin":[{store:"BALI AYVALIK CD",hedef:700,ger:228,hgo:33},{store:"BALI AYVALIK KIRLANGIC AVM",hedef:1100,ger:264,hgo:24},{store:"BALI BALIKESIR 10 BURDA AVM",hedef:2700,ger:725,hgo:27},{store:"BALI EDREMIT NOVADA AVM",hedef:2000,ger:620,hgo:31},{store:"BALI MILLI KUVVETLER CD",hedef:900,ger:260,hgo:29},{store:"BALI YASA OUTLET",hedef:1000,ger:332,hgo:33},{store:"IZMI BOSTANLI CAD",hedef:1800,ger:295,hgo:16},{store:"IZMI CIGLI KIP",hedef:700,ger:193,hgo:28},{store:"IZMI DIKILI CAD",hedef:700,ger:190,hgo:27},{store:"IZMI EFESUS AVM",hedef:1400,ger:417,hgo:30},{store:"IZMI HILLTOWN AVM",hedef:4900,ger:1458,hgo:30},{store:"IZMI K.YAKA CARSI CD",hedef:3800,ger:814,hgo:21},{store:"IZMI NOVADA MENEMEN AVM",hedef:800,ger:221,hgo:28},{store:"IZMI SAKIPAGA AVM",hedef:1300,ger:356,hgo:27},{store:"MANI AKHISAR NOVADA AVM",hedef:1200,ger:372,hgo:31},{store:"MANI ALPHARD AVM",hedef:600,ger:239,hgo:40},{store:"MANI DOGU CD",hedef:900,ger:301,hgo:33},{store:"MANI MAGNESIA",hedef:2300,ger:622,hgo:27},{store:"MANI SALIHLI KIP",hedef:1500,ger:390,hgo:26}],"Zehra Celik":[{store:"AYDI DIDIM CD",hedef:800,ger:163,hgo:20},{store:"AYDI DIDIM KIPA AVM",hedef:300,ger:95,hgo:32},{store:"AYDI KUSADASI AVM",hedef:1600,ger:504,hgo:32},{store:"AYDI KUSADASI INONU BLV",hedef:900,ger:165,hgo:18},{store:"AYDI KUSADASI MARINA",hedef:1800,ger:243,hgo:14},{store:"AYDI SOKE NOVADA",hedef:1400,ger:376,hgo:27},{store:"AYDI SOKE OUTLET",hedef:1600,ger:595,hgo:37},{store:"IZMI ALACATI",hedef:700,ger:213,hgo:30},{store:"IZMI CESME CADDE PLUS AVM",hedef:800,ger:204,hgo:26},{store:"IZMI CESME CD",hedef:800,ger:122,hgo:15},{store:"IZMI OPTIMUM",hedef:2000,ger:564,hgo:28},{store:"IZMI OPTIMUM 2",hedef:1800,ger:813,hgo:45},{store:"IZMI RENNA PARK AVM",hedef:700,ger:165,hgo:24},{store:"IZMI SELWAY AVM",hedef:700,ger:304,hgo:43},{store:"IZMI SELWAY AVM 2",hedef:1000,ger:211,hgo:21},{store:"IZMI SIRINYER CD",hedef:1700,ger:458,hgo:27},{store:"IZMI URLA BAMBOO AVM",hedef:2200,ger:403,hgo:18}],"Zeycan Ozcan":[{store:"AYDI ADNAN MENDERES BLV",hedef:1300,ger:316,hgo:24},{store:"AYDI AYDIN FR",hedef:2000,ger:529,hgo:26},{store:"AYDI AYDIN KIP",hedef:1400,ger:278,hgo:20},{store:"AYDI NAZILLI BAMBOO AVM",hedef:900,ger:276,hgo:31},{store:"AYDI OPSMALL AVM",hedef:1600,ger:401,hgo:25},{store:"IZMI ALSANCAK",hedef:1500,ger:90,hgo:6},{store:"IZMI BALCOVA KIP",hedef:1400,ger:304,hgo:22},{store:"IZMI BORNOVA CD",hedef:1300,ger:304,hgo:23},{store:"IZMI EGE PERLA AVM",hedef:800,ger:79,hgo:10},{store:"IZMI FORUM BORNOVA AVM",hedef:4400,ger:900,hgo:20},{store:"IZMI HATAY CAD",hedef:1700,ger:399,hgo:23},{store:"IZMI ISTINYEPARK AVM",hedef:4900,ger:1368,hgo:28},{store:"IZMI IZMIR PARK AVM",hedef:900,ger:307,hgo:34},{store:"IZMI KIBRIS S. 3",hedef:2400,ger:509,hgo:21},{store:"IZMI KONAK PIER AVM",hedef:900,ger:125,hgo:14},{store:"IZMI PARK BORNOVA AVM",hedef:1300,ger:333,hgo:26},{store:"IZMI POINT BORNOVA AVM",hedef:600,ger:331,hgo:55},{store:"IZMI WESTPARK AVM",hedef:900,ger:399,hgo:44}]};
+const avatarColors=['#E91E8C','#BE185D','#9333EA','#7C3AED','#6366F1','#4F46E5','#2563EB','#0891B2','#059669','#D97706','#DC2626','#7C2D12'];
+function getInitials(n){return n.split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase();}
+function formatNum(n){return n.toLocaleString('tr-TR');}
+function hgoClass(h){if(h>=25)return'hgo-high';if(h>=18)return'hgo-mid';return'hgo-low';}
+function renderOMs(){const g=document.getElementById('omGrid');const m=['🥇','🥈','🥉'];omData.forEach((om,i)=>{const c=document.createElement('div');c.className=`om-card rank-${om.rank} animate-in`;c.style.animationDelay=`${0.3+i*0.1}s`;c.innerHTML=`<div class="om-rank">${m[i]}</div><div class="om-name">${om.name}</div><div class="om-role">Operasyon Müdürü</div><div class="om-hgo-big">%${om.hgo}</div><div class="om-stats-row"><div class="om-stat-item"><div class="label">Hedef</div><div class="value">${formatNum(om.hedef)}</div></div><div class="om-stat-item"><div class="label">Gerçekleşen</div><div class="value">${formatNum(om.gerceklesen)}</div></div></div><div class="om-bar-bg"><div class="om-bar-fill" style="width:${om.hgo*2.5}%"></div></div>`;g.appendChild(c);});}
+function renderBMs(){const g=document.getElementById('bmGrid');bmData.forEach((bm,i)=>{const color=avatarColors[i%avatarColors.length];const c=document.createElement('div');c.className='bm-card animate-in';c.style.animationDelay=`${0.4+i*0.04}s`;const stores=storeData[bm.name]||[];const best=stores.length?stores.reduce((a,b)=>a.hgo>b.hgo?a:b):null;let rows=stores.sort((a,b)=>b.hgo-a.hgo).map(s=>{const isBest=best&&s.store===best.store;return`<tr class="${isBest?'store-best-row':''}"><td>${s.store}</td><td>${formatNum(s.hedef)}</td><td>${formatNum(s.ger)}</td><td><span class="store-hgo-badge ${hgoClass(s.hgo)}">%${s.hgo}</span></td></tr>`;}).join('');c.innerHTML=`<div class="bm-card-header" onclick="toggleBM(this)"><div class="bm-left"><div class="bm-avatar" style="background:${color}">${getInitials(bm.name)}</div><div class="bm-info"><div class="bm-name">${bm.name}</div><div class="bm-om-label">${bm.om} · ${stores.length} mağaza</div></div></div><div class="bm-right"><div class="bm-hgo">%${bm.hgo}</div><div class="bm-target-info">${formatNum(bm.gerceklesen)} / ${formatNum(bm.hedef)}</div></div><span class="bm-expand-icon">▼</span></div><div class="bm-mini-bar"><div class="bm-mini-bar-fill" style="width:${bm.hgo*2.5}%"></div></div><div class="bm-stores"><div class="store-table-wrap"><table class="store-table"><thead><tr><th>Mağaza</th><th>Hedef</th><th>Gerçekleşen</th><th>HGO</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;g.appendChild(c);});}
+function toggleBM(h){h.closest('.bm-card').classList.toggle('expanded');}
+renderOMs();renderBMs();
 </script>
 </body>
 </html>
